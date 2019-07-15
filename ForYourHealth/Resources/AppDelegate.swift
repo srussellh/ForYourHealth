@@ -15,6 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+//        if !UserController.shared.name.isEmpty {
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let feedViewController = storyboard.instantiateViewController(withIdentifier: "tabController")
+//            UIApplication.shared.windows.first?.rootViewController = feedViewController
+//        }
         // Override point for customization after application launch.
         return true
     }

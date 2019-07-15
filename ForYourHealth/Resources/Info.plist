@@ -41,5 +41,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This is used to allow you to speak your responses</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>This allows the app to read off your symptoms when prompted</string>
 </dict>
 </plist>

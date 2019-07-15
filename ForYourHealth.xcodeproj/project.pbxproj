@@ -8,20 +8,52 @@
 
 /* Begin PBXBuildFile section */
 		02410DDA22AB064F00E12608 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02410DD922AB064F00E12608 /* AppDelegate.swift */; };
-		02410DDC22AB064F00E12608 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02410DDB22AB064F00E12608 /* ViewController.swift */; };
 		02410DDF22AB064F00E12608 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02410DDD22AB064F00E12608 /* Main.storyboard */; };
 		02410DE122AB065000E12608 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02410DE022AB065000E12608 /* Assets.xcassets */; };
 		02410DE422AB065000E12608 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02410DE222AB065000E12608 /* LaunchScreen.storyboard */; };
+		025D301C22D5433D00A9D94C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 025D301A22D5433D00A9D94C /* Model.xcdatamodeld */; };
+		025D301E22D54C2300A9D94C /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D301D22D54C2300A9D94C /* CoreDataStack.swift */; };
+		025D302022D54F2F00A9D94C /* User+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D301F22D54F2F00A9D94C /* User+Convenience.swift */; };
+		025D302222D54F5200A9D94C /* Symptom+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D302122D54F5200A9D94C /* Symptom+Convenience.swift */; };
+		025D302422D54F6000A9D94C /* Rating+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D302322D54F6000A9D94C /* Rating+Convenience.swift */; };
+		025D302622D54F6E00A9D94C /* Medication+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D302522D54F6E00A9D94C /* Medication+Convenience.swift */; };
+		025D302822D54F7B00A9D94C /* FoodEntry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D302722D54F7B00A9D94C /* FoodEntry+Convenience.swift */; };
+		025D302A22D54F8B00A9D94C /* Alarm+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D302922D54F8B00A9D94C /* Alarm+Convenience.swift */; };
+		025D302C22D54FF200A9D94C /* Entry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D302B22D54FF200A9D94C /* Entry+Convenience.swift */; };
+		025D302E22D6816C00A9D94C /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D302D22D6816C00A9D94C /* UserController.swift */; };
+		025D303022D6836E00A9D94C /* SymptomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D302F22D6836E00A9D94C /* SymptomController.swift */; };
+		025D303322D6863100A9D94C /* RatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D303222D6863100A9D94C /* RatingController.swift */; };
+		025D303522D689D400A9D94C /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D303422D689D400A9D94C /* CreateUserViewController.swift */; };
+		025D303722D6952000A9D94C /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D303622D6952000A9D94C /* ProfileTableViewController.swift */; };
+		025D303B22D6A42B00A9D94C /* CreateSymptomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D303A22D6A42B00A9D94C /* CreateSymptomViewController.swift */; };
+		025D303E22D6A81B00A9D94C /* VerbalSymptomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D303D22D6A81B00A9D94C /* VerbalSymptomViewController.swift */; };
+		025D304022DCD40600A9D94C /* FoodEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D303F22DCD40600A9D94C /* FoodEntryController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		02410DD622AB064F00E12608 /* ForYourHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForYourHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02410DD922AB064F00E12608 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		02410DDB22AB064F00E12608 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		02410DDE22AB064F00E12608 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		02410DE022AB065000E12608 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02410DE322AB065000E12608 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02410DE522AB065000E12608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		025D301B22D5433D00A9D94C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		025D301D22D54C2300A9D94C /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		025D301F22D54F2F00A9D94C /* User+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Convenience.swift"; sourceTree = "<group>"; };
+		025D302122D54F5200A9D94C /* Symptom+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Symptom+Convenience.swift"; sourceTree = "<group>"; };
+		025D302322D54F6000A9D94C /* Rating+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rating+Convenience.swift"; sourceTree = "<group>"; };
+		025D302522D54F6E00A9D94C /* Medication+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medication+Convenience.swift"; sourceTree = "<group>"; };
+		025D302722D54F7B00A9D94C /* FoodEntry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FoodEntry+Convenience.swift"; sourceTree = "<group>"; };
+		025D302922D54F8B00A9D94C /* Alarm+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alarm+Convenience.swift"; sourceTree = "<group>"; };
+		025D302B22D54FF200A9D94C /* Entry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Convenience.swift"; sourceTree = "<group>"; };
+		025D302D22D6816C00A9D94C /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		025D302F22D6836E00A9D94C /* SymptomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomController.swift; sourceTree = "<group>"; };
+		025D303222D6863100A9D94C /* RatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingController.swift; sourceTree = "<group>"; };
+		025D303422D689D400A9D94C /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
+		025D303622D6952000A9D94C /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		025D303A22D6A42B00A9D94C /* CreateSymptomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSymptomViewController.swift; sourceTree = "<group>"; };
+		025D303D22D6A81B00A9D94C /* VerbalSymptomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalSymptomViewController.swift; sourceTree = "<group>"; };
+		025D303F22DCD40600A9D94C /* FoodEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEntryController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +86,62 @@
 		02410DD822AB064F00E12608 /* ForYourHealth */ = {
 			isa = PBXGroup;
 			children = (
-				02410DD922AB064F00E12608 /* AppDelegate.swift */,
-				02410DDB22AB064F00E12608 /* ViewController.swift */,
 				02410DDD22AB064F00E12608 /* Main.storyboard */,
+				025D303C22D6A68600A9D94C /* ViewControllers */,
+				025D303122D6837700A9D94C /* ModelControllers */,
+				025D2FE322D512DC00A9D94C /* Models */,
+				02410DEB22AB067800E12608 /* Resources */,
+			);
+			path = ForYourHealth;
+			sourceTree = "<group>";
+		};
+		02410DEB22AB067800E12608 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				02410DD922AB064F00E12608 /* AppDelegate.swift */,
 				02410DE022AB065000E12608 /* Assets.xcassets */,
 				02410DE222AB065000E12608 /* LaunchScreen.storyboard */,
 				02410DE522AB065000E12608 /* Info.plist */,
 			);
-			path = ForYourHealth;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		025D2FE322D512DC00A9D94C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				025D301A22D5433D00A9D94C /* Model.xcdatamodeld */,
+				025D302B22D54FF200A9D94C /* Entry+Convenience.swift */,
+				025D302922D54F8B00A9D94C /* Alarm+Convenience.swift */,
+				025D302722D54F7B00A9D94C /* FoodEntry+Convenience.swift */,
+				025D302522D54F6E00A9D94C /* Medication+Convenience.swift */,
+				025D302322D54F6000A9D94C /* Rating+Convenience.swift */,
+				025D302122D54F5200A9D94C /* Symptom+Convenience.swift */,
+				025D301F22D54F2F00A9D94C /* User+Convenience.swift */,
+				025D301D22D54C2300A9D94C /* CoreDataStack.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		025D303122D6837700A9D94C /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				025D302D22D6816C00A9D94C /* UserController.swift */,
+				025D302F22D6836E00A9D94C /* SymptomController.swift */,
+				025D303222D6863100A9D94C /* RatingController.swift */,
+				025D303F22DCD40600A9D94C /* FoodEntryController.swift */,
+			);
+			path = ModelControllers;
+			sourceTree = "<group>";
+		};
+		025D303C22D6A68600A9D94C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				025D303A22D6A42B00A9D94C /* CreateSymptomViewController.swift */,
+				025D303D22D6A81B00A9D94C /* VerbalSymptomViewController.swift */,
+				025D303422D689D400A9D94C /* CreateUserViewController.swift */,
+				025D303622D6952000A9D94C /* ProfileTableViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +215,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02410DDC22AB064F00E12608 /* ViewController.swift in Sources */,
+				025D302822D54F7B00A9D94C /* FoodEntry+Convenience.swift in Sources */,
+				025D302422D54F6000A9D94C /* Rating+Convenience.swift in Sources */,
+				025D302022D54F2F00A9D94C /* User+Convenience.swift in Sources */,
+				025D303522D689D400A9D94C /* CreateUserViewController.swift in Sources */,
+				025D302E22D6816C00A9D94C /* UserController.swift in Sources */,
+				025D301C22D5433D00A9D94C /* Model.xcdatamodeld in Sources */,
+				025D303722D6952000A9D94C /* ProfileTableViewController.swift in Sources */,
+				025D302C22D54FF200A9D94C /* Entry+Convenience.swift in Sources */,
+				025D303B22D6A42B00A9D94C /* CreateSymptomViewController.swift in Sources */,
+				025D302222D54F5200A9D94C /* Symptom+Convenience.swift in Sources */,
+				025D304022DCD40600A9D94C /* FoodEntryController.swift in Sources */,
+				025D303322D6863100A9D94C /* RatingController.swift in Sources */,
+				025D302A22D54F8B00A9D94C /* Alarm+Convenience.swift in Sources */,
 				02410DDA22AB064F00E12608 /* AppDelegate.swift in Sources */,
+				025D301E22D54C2300A9D94C /* CoreDataStack.swift in Sources */,
+				025D302622D54F6E00A9D94C /* Medication+Convenience.swift in Sources */,
+				025D303E22D6A81B00A9D94C /* VerbalSymptomViewController.swift in Sources */,
+				025D303022D6836E00A9D94C /* SymptomController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +380,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H8Y4FR84B6;
-				INFOPLIST_FILE = ForYourHealth/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ForYourHealth/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +398,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H8Y4FR84B6;
-				INFOPLIST_FILE = ForYourHealth/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ForYourHealth/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -336,6 +432,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		025D301A22D5433D00A9D94C /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				025D301B22D5433D00A9D94C /* Model.xcdatamodel */,
+			);
+			currentVersion = 025D301B22D5433D00A9D94C /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 02410DCE22AB064F00E12608 /* Project object */;
 }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18F203" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Alarm" representedClassName="Alarm" syncable="YES" codeGenerationType="class">
+        <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="medication" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MedIcation" inverseName="alarm" inverseEntity="MedIcation" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="alarm" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Entry" representedClassName="Entry" syncable="YES" codeGenerationType="class">
+        <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="entry" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="FoodEntry" representedClassName="FoodEntry" syncable="YES" codeGenerationType="class">
+        <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="meal" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="foodEntry" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="MedIcation" representedClassName="MedIcation" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="alarm" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Alarm" inverseName="medication" inverseEntity="Alarm" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="medication" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Rating" representedClassName="Rating" syncable="YES" codeGenerationType="class">
+        <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="symptom" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Symptom" inverseName="ratings" inverseEntity="Symptom" syncable="YES"/>
+    </entity>
+    <entity name="Symptom" representedClassName="Symptom" parentEntity="User" syncable="YES" codeGenerationType="class">
+        <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="ratings" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Rating" inverseName="symptom" inverseEntity="Rating" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="symptoms" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="alarm" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Alarm" inverseName="user" inverseEntity="Alarm" syncable="YES"/>
+        <relationship name="entry" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Entry" inverseName="user" inverseEntity="Entry" syncable="YES"/>
+        <relationship name="foodEntry" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="FoodEntry" inverseName="user" inverseEntity="FoodEntry" syncable="YES"/>
+        <relationship name="medication" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="MedIcation" inverseName="user" inverseEntity="MedIcation" syncable="YES"/>
+        <relationship name="symptoms" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Symptom" inverseName="user" inverseEntity="Symptom" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="User" positionX="-45" positionY="0" width="128" height="135"/>
+        <element name="Symptom" positionX="-18" positionY="45" width="128" height="90"/>
+        <element name="FoodEntry" positionX="9" positionY="72" width="128" height="105"/>
+        <element name="Rating" positionX="27" positionY="108" width="128" height="90"/>
+        <element name="MedIcation" positionX="45" positionY="135" width="128" height="90"/>
+        <element name="Alarm" positionX="0" positionY="90" width="128" height="90"/>
+        <element name="Entry" positionX="9" positionY="99" width="128" height="90"/>
+    </elements>
+</model>
