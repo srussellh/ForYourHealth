@@ -12,26 +12,28 @@ import CoreData
 extension Alarm {
     
     
-    convenience init(withUser user: User, name:String, enabled:Bool = true, hour:Int, minute:Int, amOrPm: String ,uuid: String = UUID().uuidString, context: NSManagedObjectContext = CoreDataStack.context){
+    convenience init(withUser user: User, name:String, enabled:Bool = true, hour:Int, minute:Int, amOrPm: Int, weekdays:[Int], uuid: String = UUID().uuidString, context: NSManagedObjectContext = CoreDataStack.context){
         self.init(context: context)
         self.hour = Int64(hour)
         self.minute = Int64(minute)
-        self.amOrPm = amOrPm
+        self.amOrPm = Int64(amOrPm)
         self.enabled = enabled
         self.uuid = uuid
         self.name = name
+        self.weekdays = weekdays.map { Int64($0) }
         
     }
     
-    convenience init(withMedication medication: MedIcation, enabled:Bool = true,uuid: String = UUID().uuidString, hour:Int, minute:Int, amOrPm: String , name:String, context: NSManagedObjectContext = CoreDataStack.context){
+    convenience init(withMedication medication: MedIcation, enabled:Bool = true,uuid: String = UUID().uuidString, hour:Int, minute:Int, amOrPm: Int, weekdays:[Int], name:String, context: NSManagedObjectContext = CoreDataStack.context){
         self.init(context: context)
         self.hour = Int64(hour)
         self.minute = Int64(minute)
-        self.amOrPm = amOrPm
+        self.amOrPm = Int64(amOrPm)
         self.medication = medication
         self.enabled = enabled
         self.uuid = uuid
         self.name = name
+        self.weekdays = weekdays.map { Int64($0) }
         
     }
 }

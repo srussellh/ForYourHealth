@@ -64,7 +64,7 @@ class ProfileTableViewController: UITableViewController {
         } else {
             guard let alarm = user.alarm?.object(at: indexPath.row) as? Alarm else {return UITableViewCell()}
             
-            cell.textLabel?.text = String(describing: alarm.name)
+            cell.textLabel?.text = alarm.name
             return cell
         }
     }
