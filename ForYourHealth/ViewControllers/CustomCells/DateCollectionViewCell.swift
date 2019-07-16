@@ -9,6 +9,12 @@
 import UIKit
 
 class DateCollectionViewCell: UICollectionViewCell {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+//        dateLabel.textColor = .green
+        
+    }
     
     @IBOutlet weak var dateLabel: UILabel!
+    
 }
