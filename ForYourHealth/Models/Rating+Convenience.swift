@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 extension Rating{
-    convenience init(number: String, timeStamp: Date = Date(), symptom: Symptom, context: NSManagedObjectContext = CoreDataStack.context){
+    @discardableResult convenience init(number: String, timeStamp: Date = Date(), symptom: Symptom, context: NSManagedObjectContext = CoreDataStack.context){
         self.init(context: context)
         self.number = number
         self.timeStamp = timeStamp

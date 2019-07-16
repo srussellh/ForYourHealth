@@ -15,6 +15,12 @@ class SymptomController {
         Symptom(detail: detail, user: user)
         UserController.shared.saveToPersistentStore()
     }
+    
+    func updateSymptom(symptom: Symptom, detail: String){
+        symptom.detail = detail
+        UserController.shared.saveToPersistentStore()
+    }
+    
     func deleteSymptom(symptom: Symptom){
         let moc = CoreDataStack.context
         moc.delete(symptom)

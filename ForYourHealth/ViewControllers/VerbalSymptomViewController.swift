@@ -125,26 +125,26 @@ class VerbalSymptomViewController: UIViewController, AVSpeechSynthesizerDelegate
         
         //MARK: -Possibled responses
         if response.contains("one") || response.contains("wen"){
-        RatingController.shared.createRating(rating: "1", symptom: symptom)
+            RatingController.shared.createRating(number: "1", symptom: symptom)
         } else if response.contains("two") || response.contains("to") || response.contains("too"){
-            RatingController.shared.createRating(rating: "2", symptom: symptom)
+            RatingController.shared.createRating(number: "2", symptom: symptom)
         } else if response.contains("three") || response.contains("tree") || response.contains("free"){
-            RatingController.shared.createRating(rating: "3", symptom: symptom)
-        } else if response.contains("four") || response.contains("for") || response.contains("fore") || response.contains("or"){        RatingController.shared.createRating(rating: "4", symptom: symptom)
+            RatingController.shared.createRating(number: "3", symptom: symptom)
+        } else if response.contains("four") || response.contains("for") || response.contains("fore") || response.contains("or"){        RatingController.shared.createRating(number: "4", symptom: symptom)
         } else if response.contains("five") || response.contains("dive"){
-            RatingController.shared.createRating(rating: "5", symptom: symptom)
+            RatingController.shared.createRating(number: "5", symptom: symptom)
         } else if response.contains("six"){
-            RatingController.shared.createRating(rating: "6", symptom: symptom)
+            RatingController.shared.createRating(number: "6", symptom: symptom)
         } else if response.contains("seven"){
-            RatingController.shared.createRating(rating: "7", symptom: symptom)
+            RatingController.shared.createRating(number: "7", symptom: symptom)
         } else if response.contains("eight") || response.contains("ate") {
-            RatingController.shared.createRating(rating: "8", symptom: symptom)
+            RatingController.shared.createRating(number: "8", symptom: symptom)
         } else if response.contains("nine"){
-            RatingController.shared.createRating(rating: "9", symptom: symptom)
+            RatingController.shared.createRating(number: "9", symptom: symptom)
         } else if response.contains("ten"){
-            RatingController.shared.createRating(rating: "10", symptom: symptom)
+            RatingController.shared.createRating(number: "10", symptom: symptom)
         } else if response.contains("zero"){
-            RatingController.shared.createRating(rating: "0", symptom: symptom)
+            RatingController.shared.createRating(number: "0", symptom: symptom)
         } else {
             return
         }

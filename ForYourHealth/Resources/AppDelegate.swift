@@ -7,22 +7,33 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        if !UserController.shared.name.isEmpty {
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let feedViewController = storyboard.instantiateViewController(withIdentifier: "tabController")
-//            UIApplication.shared.windows.first?.rootViewController = feedViewController
-//        }
-        // Override point for customization after application launch.
+        if !UserController.shared.name.isEmpty {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let feedViewController = storyboard.instantiateViewController(withIdentifier: "tabController")
+            UIApplication.shared.windows.first?.rootViewController = feedViewController
+            
+            UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .badge, .alert]) { (granted, error) in
+                print("Notifications where granted? \(granted)")
+            }
+        }
+        UNUserNotificationCenter.current().delegate = self
         return true
     }
+    
+    
+    
+//    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+//        completionHandler ([.alert, .sound])
+//    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

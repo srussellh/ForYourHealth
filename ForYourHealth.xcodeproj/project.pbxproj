@@ -28,6 +28,16 @@
 		025D303B22D6A42B00A9D94C /* CreateSymptomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D303A22D6A42B00A9D94C /* CreateSymptomViewController.swift */; };
 		025D303E22D6A81B00A9D94C /* VerbalSymptomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D303D22D6A81B00A9D94C /* VerbalSymptomViewController.swift */; };
 		025D304022DCD40600A9D94C /* FoodEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D303F22DCD40600A9D94C /* FoodEntryController.swift */; };
+		025D304422DCD82700A9D94C /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D304322DCD82700A9D94C /* EntryController.swift */; };
+		025D304622DCD97E00A9D94C /* MedicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D304522DCD97E00A9D94C /* MedicationController.swift */; };
+		025D304822DCDE4100A9D94C /* DateExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D304722DCDE4100A9D94C /* DateExtention.swift */; };
+		025D304D22DCE1FA00A9D94C /* UserAlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D304C22DCE1FA00A9D94C /* UserAlarmController.swift */; };
+		025D305122DCEADB00A9D94C /* MedsAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D305022DCEADB00A9D94C /* MedsAlertController.swift */; };
+		025D305322DCF04000A9D94C /* CreateAlarmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D305222DCF04000A9D94C /* CreateAlarmTableViewController.swift */; };
+		025D305522DD2A0000A9D94C /* Weekdays+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D305422DD2A0000A9D94C /* Weekdays+Convenience.swift */; };
+		025D305722DD3BE300A9D94C /* CalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D305622DD3BE300A9D94C /* CalenderViewController.swift */; };
+		025D305922DD3E6E00A9D94C /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D305822DD3E6E00A9D94C /* DateCollectionViewCell.swift */; };
+		025D305C22DD3F6600A9D94C /* CalenderVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D305B22DD3F6600A9D94C /* CalenderVariables.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +64,16 @@
 		025D303A22D6A42B00A9D94C /* CreateSymptomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSymptomViewController.swift; sourceTree = "<group>"; };
 		025D303D22D6A81B00A9D94C /* VerbalSymptomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalSymptomViewController.swift; sourceTree = "<group>"; };
 		025D303F22DCD40600A9D94C /* FoodEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEntryController.swift; sourceTree = "<group>"; };
+		025D304322DCD82700A9D94C /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
+		025D304522DCD97E00A9D94C /* MedicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationController.swift; sourceTree = "<group>"; };
+		025D304722DCDE4100A9D94C /* DateExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtention.swift; sourceTree = "<group>"; };
+		025D304C22DCE1FA00A9D94C /* UserAlarmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAlarmController.swift; sourceTree = "<group>"; };
+		025D305022DCEADB00A9D94C /* MedsAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedsAlertController.swift; sourceTree = "<group>"; };
+		025D305222DCF04000A9D94C /* CreateAlarmTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlarmTableViewController.swift; sourceTree = "<group>"; };
+		025D305422DD2A0000A9D94C /* Weekdays+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weekdays+Convenience.swift"; sourceTree = "<group>"; };
+		025D305622DD3BE300A9D94C /* CalenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderViewController.swift; sourceTree = "<group>"; };
+		025D305822DD3E6E00A9D94C /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		025D305B22DD3F6600A9D94C /* CalenderVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderVariables.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				02410DDD22AB064F00E12608 /* Main.storyboard */,
+				025D304922DCDE4A00A9D94C /* Helpers */,
 				025D303C22D6A68600A9D94C /* ViewControllers */,
 				025D303122D6837700A9D94C /* ModelControllers */,
 				025D2FE322D512DC00A9D94C /* Models */,
@@ -112,6 +133,7 @@
 				025D301A22D5433D00A9D94C /* Model.xcdatamodeld */,
 				025D302B22D54FF200A9D94C /* Entry+Convenience.swift */,
 				025D302922D54F8B00A9D94C /* Alarm+Convenience.swift */,
+				025D305422DD2A0000A9D94C /* Weekdays+Convenience.swift */,
 				025D302722D54F7B00A9D94C /* FoodEntry+Convenience.swift */,
 				025D302522D54F6E00A9D94C /* Medication+Convenience.swift */,
 				025D302322D54F6000A9D94C /* Rating+Convenience.swift */,
@@ -129,6 +151,10 @@
 				025D302F22D6836E00A9D94C /* SymptomController.swift */,
 				025D303222D6863100A9D94C /* RatingController.swift */,
 				025D303F22DCD40600A9D94C /* FoodEntryController.swift */,
+				025D304322DCD82700A9D94C /* EntryController.swift */,
+				025D304C22DCE1FA00A9D94C /* UserAlarmController.swift */,
+				025D305022DCEADB00A9D94C /* MedsAlertController.swift */,
+				025D304522DCD97E00A9D94C /* MedicationController.swift */,
 			);
 			path = ModelControllers;
 			sourceTree = "<group>";
@@ -137,11 +163,31 @@
 			isa = PBXGroup;
 			children = (
 				025D303A22D6A42B00A9D94C /* CreateSymptomViewController.swift */,
+				025D305222DCF04000A9D94C /* CreateAlarmTableViewController.swift */,
 				025D303D22D6A81B00A9D94C /* VerbalSymptomViewController.swift */,
 				025D303422D689D400A9D94C /* CreateUserViewController.swift */,
 				025D303622D6952000A9D94C /* ProfileTableViewController.swift */,
+				025D305622DD3BE300A9D94C /* CalenderViewController.swift */,
+				025D305A22DD3E7500A9D94C /* CustomCells */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		025D304922DCDE4A00A9D94C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				025D304722DCDE4100A9D94C /* DateExtention.swift */,
+				025D305B22DD3F6600A9D94C /* CalenderVariables.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		025D305A22DD3E7500A9D94C /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				025D305822DD3E6E00A9D94C /* DateCollectionViewCell.swift */,
+			);
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,22 +262,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				025D302822D54F7B00A9D94C /* FoodEntry+Convenience.swift in Sources */,
+				025D305C22DD3F6600A9D94C /* CalenderVariables.swift in Sources */,
 				025D302422D54F6000A9D94C /* Rating+Convenience.swift in Sources */,
+				025D305722DD3BE300A9D94C /* CalenderViewController.swift in Sources */,
 				025D302022D54F2F00A9D94C /* User+Convenience.swift in Sources */,
 				025D303522D689D400A9D94C /* CreateUserViewController.swift in Sources */,
 				025D302E22D6816C00A9D94C /* UserController.swift in Sources */,
 				025D301C22D5433D00A9D94C /* Model.xcdatamodeld in Sources */,
 				025D303722D6952000A9D94C /* ProfileTableViewController.swift in Sources */,
+				025D304422DCD82700A9D94C /* EntryController.swift in Sources */,
 				025D302C22D54FF200A9D94C /* Entry+Convenience.swift in Sources */,
 				025D303B22D6A42B00A9D94C /* CreateSymptomViewController.swift in Sources */,
+				025D305522DD2A0000A9D94C /* Weekdays+Convenience.swift in Sources */,
+				025D304D22DCE1FA00A9D94C /* UserAlarmController.swift in Sources */,
 				025D302222D54F5200A9D94C /* Symptom+Convenience.swift in Sources */,
 				025D304022DCD40600A9D94C /* FoodEntryController.swift in Sources */,
 				025D303322D6863100A9D94C /* RatingController.swift in Sources */,
+				025D305922DD3E6E00A9D94C /* DateCollectionViewCell.swift in Sources */,
 				025D302A22D54F8B00A9D94C /* Alarm+Convenience.swift in Sources */,
+				025D305322DCF04000A9D94C /* CreateAlarmTableViewController.swift in Sources */,
 				02410DDA22AB064F00E12608 /* AppDelegate.swift in Sources */,
 				025D301E22D54C2300A9D94C /* CoreDataStack.swift in Sources */,
 				025D302622D54F6E00A9D94C /* Medication+Convenience.swift in Sources */,
+				025D305122DCEADB00A9D94C /* MedsAlertController.swift in Sources */,
+				025D304822DCDE4100A9D94C /* DateExtention.swift in Sources */,
 				025D303E22D6A81B00A9D94C /* VerbalSymptomViewController.swift in Sources */,
+				025D304622DCD97E00A9D94C /* MedicationController.swift in Sources */,
 				025D303022D6836E00A9D94C /* SymptomController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
