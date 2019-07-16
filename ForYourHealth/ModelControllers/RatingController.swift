@@ -11,10 +11,13 @@ import Foundation
 class RatingController{
     static let shared = RatingController()
     
-    func createRating(rating: String, symptom: Symptom){
-        Rating(number: rating, symptom: symptom)
+    func createRating(number: String, symptom: Symptom){
+        Rating(number: number, symptom: symptom)
         UserController.shared.saveToPersistentStore()
-
     }
     
+    func updateRating(rating: Rating, number: String){
+        rating.number = number
+        UserController.shared.saveToPersistentStore()
+    }
 }

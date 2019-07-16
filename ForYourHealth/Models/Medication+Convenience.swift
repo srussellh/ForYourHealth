@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 extension MedIcation {
-    convenience init(name:String, user: User, context: NSManagedObjectContext = CoreDataStack.context){
+    @discardableResult convenience init(name:String, user: User, context: NSManagedObjectContext = CoreDataStack.context){
         self.init(context: context)
         self.name = name
         self.user = user

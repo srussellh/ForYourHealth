@@ -10,14 +10,27 @@ import Foundation
 import CoreData
 
 extension Alarm{
-    convenience init(withUser time:Date, user: User, context: NSManagedObjectContext = CoreDataStack.context){
-        self.init(context: context)
-        self.time = time
-        self.user = user
+    var fireTimeAsString: String {
+        return (fireDate?.toStringWith(dateStyle: .none, timeStyle: .short))!
     }
-    convenience init(withMedication time:Date, medication: MedIcation, context: NSManagedObjectContext = CoreDataStack.context){
+    
+    convenience init(withUser user: User, name:String, enabled:Bool = true, fireDate:Date,uuid: String = UUID().uuidString, context: NSManagedObjectContext = CoreDataStack.context){
         self.init(context: context)
-        self.time = time
+        self.fireDate = fireDate
+        self.user = user
+        self.enabled = enabled
+        self.uuid = uuid
+        self.name = name
+        
+    }
+    
+    convenience init(withMedication medication: MedIcation, enabled:Bool = true, fireDate:Date,uuid: String = UUID().uuidString, name:String, context: NSManagedObjectContext = CoreDataStack.context){
+        self.init(context: context)
+        self.fireDate = fireDate
         self.medication = medication
+        self.enabled = enabled
+        self.uuid = uuid
+        self.name = name
+        
     }
 }
