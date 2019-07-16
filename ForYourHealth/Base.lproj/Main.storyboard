@@ -86,7 +86,7 @@
             </objects>
             <point key="canvasLocation" x="3115.9420289855075" y="1.3392857142857142"/>
         </scene>
-        <!--Create Med Table View Controller-->
+        <!--Title-->
         <scene sceneID="g57-Uh-u4X">
             <objects>
                 <tableViewController id="n0l-WQ-kyI" customClass="CreateMedTableViewController" customModule="ForYourHealth" customModuleProvider="target" sceneMemberID="viewController">
@@ -152,36 +152,57 @@
                                                     <rect key="frame" x="47" y="11" width="52" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Sunday"/>
+                                                    <connections>
+                                                        <action selector="sundayButtonPressed:" destination="n0l-WQ-kyI" eventType="touchUpInside" id="cVa-TJ-Hk6"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXI-T4-5nz">
                                                     <rect key="frame" x="118" y="40" width="58" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Tuesday"/>
+                                                    <connections>
+                                                        <action selector="tuesdayButtonPressed:" destination="n0l-WQ-kyI" eventType="touchUpInside" id="Zrz-ti-y3s"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zw2-NL-fjU">
                                                     <rect key="frame" x="175" y="71" width="65" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Thursday"/>
+                                                    <connections>
+                                                        <action selector="thursdayButtonPressed:" destination="n0l-WQ-kyI" eventType="touchUpInside" id="vY2-Fj-258"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rq-pa-4k6">
                                                     <rect key="frame" x="167" y="11" width="80" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Wednesday"/>
+                                                    <connections>
+                                                        <action selector="wednesdayButtonPressed:" destination="n0l-WQ-kyI" eventType="touchUpInside" id="Vrc-a5-foH"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3K1-W3-Vyk">
                                                     <rect key="frame" x="278" y="59" width="62" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Saturday"/>
+                                                    <connections>
+                                                        <action selector="saturdayButtonPressed:" destination="n0l-WQ-kyI" eventType="touchUpInside" id="3S3-Vd-y4I"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDA-xF-2vY">
                                                     <rect key="frame" x="304" y="21" width="42" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Friday"/>
+                                                    <connections>
+                                                        <action selector="fridayButtonPressed:" destination="n0l-WQ-kyI" eventType="touchUpInside" id="wVj-s3-DZk"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nf-RN-Vac">
                                                     <rect key="frame" x="46" y="59" width="55" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Monday"/>
+                                                    <connections>
+                                                        <action selector="mondayButtonPressed:" destination="n0l-WQ-kyI" eventType="touchUpInside" id="vCp-bS-7ga"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -194,8 +215,23 @@
                             <outlet property="delegate" destination="n0l-WQ-kyI" id="M8S-Aa-OyH"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="eb4-ND-ZyS">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="gCe-xF-RM5">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="n0l-WQ-kyI" id="1sx-R9-4MF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="fridaybutton" destination="bDA-xF-2vY" id="kIb-2K-uYV"/>
+                        <outlet property="medicationNameLabel" destination="GfS-4Z-NL5" id="kRY-zq-Fi8"/>
+                        <outlet property="mondayButton" destination="6Nf-RN-Vac" id="S92-z4-JBT"/>
                         <outlet property="picker" destination="wSf-dP-GOY" id="lg5-7q-Nar"/>
+                        <outlet property="saturdayButton" destination="3K1-W3-Vyk" id="QWy-On-bb2"/>
+                        <outlet property="sundayButton" destination="avt-tx-7Cd" id="Vjy-7o-Oyg"/>
+                        <outlet property="thrusdayButton" destination="zw2-NL-fjU" id="XkF-68-Tfw"/>
+                        <outlet property="tuesdayButton" destination="RXI-T4-5nz" id="dyU-RZ-Ewq"/>
+                        <outlet property="wednesdayButton" destination="1rq-pa-4k6" id="STh-TV-Pee"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TmC-L2-5Pb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -318,6 +354,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="dateLabel" destination="rAo-ge-N4Z" id="p1U-WQ-b9P"/>
+                                            <segue destination="1EK-xX-c5a" kind="show" identifier="toDateDetail" id="yWC-qa-Exm"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -355,17 +392,16 @@
                         <outlet property="thurLabel" destination="nuw-J4-Qh8" id="HD3-6P-Sl9"/>
                         <outlet property="tueLabel" destination="kgE-rw-aw6" id="8go-qN-B8y"/>
                         <outlet property="wedLabel" destination="YZ2-rs-k8w" id="Abu-Vt-tAf"/>
-                        <segue destination="1EK-xX-c5a" kind="show" id="Cxz-l7-q5W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jMV-ci-GeL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3089.8550724637685" y="795.53571428571422"/>
         </scene>
-        <!--View Controller-->
+        <!--Date Detail View Controller-->
         <scene sceneID="G5j-ac-wYr">
             <objects>
-                <viewController id="1EK-xX-c5a" sceneMemberID="viewController">
+                <viewController id="1EK-xX-c5a" customClass="DateDetailViewController" customModule="ForYourHealth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TUJ-V8-HsU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -398,9 +434,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="O4w-Wd-2ZU" kind="relationship" relationship="viewControllers" id="aT0-fY-wAr"/>
                         <segue destination="5rX-EW-dqx" kind="relationship" relationship="viewControllers" id="PHE-vA-qO1"/>
                         <segue destination="VRF-3D-FcJ" kind="relationship" relationship="viewControllers" id="bl2-Th-JP3"/>
-                        <segue destination="O4w-Wd-2ZU" kind="relationship" relationship="viewControllers" id="aT0-fY-wAr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ONT-Gw-T60" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -37,6 +37,7 @@
 		025D305722DD3BE300A9D94C /* CalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D305622DD3BE300A9D94C /* CalenderViewController.swift */; };
 		025D305922DD3E6E00A9D94C /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D305822DD3E6E00A9D94C /* DateCollectionViewCell.swift */; };
 		025D305C22DD3F6600A9D94C /* CalenderVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D305B22DD3F6600A9D94C /* CalenderVariables.swift */; };
+		02B8A36B22DE876E005911BB /* DateDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B8A36A22DE876E005911BB /* DateDetailViewController.swift */; };
 		02E3640C22DE3FF70061DD23 /* Alarm+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E3640A22DE3FF70061DD23 /* Alarm+CoreDataClass.swift */; };
 		02E3640D22DE3FF70061DD23 /* Alarm+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E3640B22DE3FF70061DD23 /* Alarm+CoreDataProperties.swift */; };
 		02E3640F22DE56080061DD23 /* MedsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E3640E22DE56080061DD23 /* MedsTableViewController.swift */; };
@@ -76,6 +77,7 @@
 		025D305622DD3BE300A9D94C /* CalenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderViewController.swift; sourceTree = "<group>"; };
 		025D305822DD3E6E00A9D94C /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		025D305B22DD3F6600A9D94C /* CalenderVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderVariables.swift; sourceTree = "<group>"; };
+		02B8A36A22DE876E005911BB /* DateDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDetailViewController.swift; sourceTree = "<group>"; };
 		02E3640A22DE3FF70061DD23 /* Alarm+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alarm+CoreDataClass.swift"; sourceTree = "<group>"; };
 		02E3640B22DE3FF70061DD23 /* Alarm+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alarm+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		02E3640E22DE56080061DD23 /* MedsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedsTableViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				025D303422D689D400A9D94C /* CreateUserViewController.swift */,
 				025D303622D6952000A9D94C /* ProfileTableViewController.swift */,
 				025D305622DD3BE300A9D94C /* CalenderViewController.swift */,
+				02B8A36A22DE876E005911BB /* DateDetailViewController.swift */,
 				02E3640E22DE56080061DD23 /* MedsTableViewController.swift */,
 				02E3641022DE5D6D0061DD23 /* CreateMedTableViewController.swift */,
 				025D305A22DD3E7500A9D94C /* CustomCells */,
@@ -279,6 +282,7 @@
 				025D302E22D6816C00A9D94C /* UserController.swift in Sources */,
 				02E3640C22DE3FF70061DD23 /* Alarm+CoreDataClass.swift in Sources */,
 				025D301C22D5433D00A9D94C /* Model.xcdatamodeld in Sources */,
+				02B8A36B22DE876E005911BB /* DateDetailViewController.swift in Sources */,
 				025D303722D6952000A9D94C /* ProfileTableViewController.swift in Sources */,
 				02E3640D22DE3FF70061DD23 /* Alarm+CoreDataProperties.swift in Sources */,
 				025D304422DCD82700A9D94C /* EntryController.swift in Sources */,
