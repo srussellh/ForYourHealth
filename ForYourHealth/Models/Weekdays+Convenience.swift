@@ -10,8 +10,9 @@ import Foundation
 import CoreData
 
 extension Weekdays {
-    @discardableResult convenience init(weekday: Int16, context: NSManagedObjectContext = CoreDataStack.context){
+    @discardableResult convenience init(alarm: Alarm, weekday: Int, context: NSManagedObjectContext = CoreDataStack.context){
         self.init(context: context)
-        self.weekdayInt = weekday
+        self.weekdayInt = Int64(weekday)
+        self.alarm = alarm
     }
 }

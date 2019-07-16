@@ -38,6 +38,7 @@
 		025D305722DD3BE300A9D94C /* CalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D305622DD3BE300A9D94C /* CalenderViewController.swift */; };
 		025D305922DD3E6E00A9D94C /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D305822DD3E6E00A9D94C /* DateCollectionViewCell.swift */; };
 		025D305C22DD3F6600A9D94C /* CalenderVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D305B22DD3F6600A9D94C /* CalenderVariables.swift */; };
+		02E3640922DE39A80061DD23 /* WeekdayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E3640822DE39A80061DD23 /* WeekdayController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		025D305622DD3BE300A9D94C /* CalenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderViewController.swift; sourceTree = "<group>"; };
 		025D305822DD3E6E00A9D94C /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		025D305B22DD3F6600A9D94C /* CalenderVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderVariables.swift; sourceTree = "<group>"; };
+		02E3640822DE39A80061DD23 /* WeekdayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				025D304C22DCE1FA00A9D94C /* UserAlarmController.swift */,
 				025D305022DCEADB00A9D94C /* MedsAlertController.swift */,
 				025D304522DCD97E00A9D94C /* MedicationController.swift */,
+				02E3640822DE39A80061DD23 /* WeekdayController.swift */,
 			);
 			path = ModelControllers;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				025D301C22D5433D00A9D94C /* Model.xcdatamodeld in Sources */,
 				025D303722D6952000A9D94C /* ProfileTableViewController.swift in Sources */,
 				025D304422DCD82700A9D94C /* EntryController.swift in Sources */,
+				02E3640922DE39A80061DD23 /* WeekdayController.swift in Sources */,
 				025D302C22D54FF200A9D94C /* Entry+Convenience.swift in Sources */,
 				025D303B22D6A42B00A9D94C /* CreateSymptomViewController.swift in Sources */,
 				025D305522DD2A0000A9D94C /* Weekdays+Convenience.swift in Sources */,
