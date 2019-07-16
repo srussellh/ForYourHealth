@@ -13,6 +13,7 @@ let calender = Calendar.current
 
 var day = calender.component(.day, from: date)
 var weekday = calender.component(.weekday, from: date)
+var week = calender.component(.weekOfMonth, from: date)
 var month = calender.component(.month, from: date) - 1
 var year = calender.component(.year, from: date)
 
