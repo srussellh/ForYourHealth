@@ -69,20 +69,6 @@ class CalenderViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func getStartDateDayPosition(){
-//        let emptyCells = (day - (week - 2) * 7)
-//        print("\(emptyCells)")
-//        if emptyCells < 7 {
-//            let cells = 7 - emptyCells
-//            return cells
-//        } else if emptyCells > 7 && emptyCells < 14{
-//            let cells = emptyCells - 7
-//            return cells
-//        }else if emptyCells = 14 {
-//            let cells = emptyCells - 6
-//            return cells
-//        } else {
-//            return 0
-//        }
         switch direction{
         case 0:
             switch week{
@@ -101,21 +87,6 @@ class CalenderViewController: UIViewController, UICollectionViewDelegate, UIColl
             default:
                 break
             }
-            
-//            switch day{
-//            case 1...7:
-//                numberOfEmptyBox = (weekday - 1) - day
-//            case 8...14:
-//                numberOfEmptyBox = (weekday - 1) - (day - 6)
-//            case 15...21:
-//                numberOfEmptyBox = (weekday - 1) - (day - 13)
-//            case 22...28:
-//                numberOfEmptyBox = (weekday - 1) - (day - 20)
-//            case 29...31:
-//                numberOfEmptyBox = (weekday - 1) - (day - 27)
-//            default:
-//                break
-//            }
             positionIndex = numberOfEmptyBox
         case 1...:
             nextNumberOfEmptyBox = (positionIndex + daysInMonth[month]) % 7
@@ -134,9 +105,6 @@ class CalenderViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        print("\(leapYear()), \(getStartDateDayPosition())")
-//        return leapYear() + getStartDateDayPosition()
-        
         switch direction{
         case 0:
             print("\(leapYear())")
@@ -155,12 +123,6 @@ class CalenderViewController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalenderCell", for: indexPath) as! DateCollectionViewCell
         cell.backgroundColor = .clear
-//        if indexPath.row < numberOfEmptyBox  {
-//            cell.isHidden = true
-//        } else {
-//            cell.isHidden = false
-//            cell.dateLabel.text = "\(indexPath.row)"
-//        }
         switch direction{
         case 0:
             cell.dateLabel.text = "\(indexPath.row + 1 - numberOfEmptyBox)"
