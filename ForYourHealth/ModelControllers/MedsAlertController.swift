@@ -12,8 +12,8 @@ import UserNotifications
 class MedsAlertController {
     static let shared = MedsAlertController()
     
-    func createAlarm(medication: MedIcation, name:String, fireDate:Date){
-        let alarm = Alarm(withMedication: medication, fireDate: fireDate, name: name)
+    func createAlarm(medication: MedIcation, name:String, hour:Int, minute:Int, amOrPm: String){
+        let alarm = Alarm(withMedication: medication, hour: hour, minute: minute, amOrPm: amOrPm, name: name)
         scheduleMedNotifications(for: alarm)
         UserController.shared.saveToPersistentStore()
     }
@@ -28,12 +28,12 @@ class MedsAlertController {
         UserController.shared.saveToPersistentStore()
     }
     
-    func updateAlarm(alarm: Alarm, name: String, fireDate:Date, enabled: Bool){
-        alarm.name = name
-        alarm.enabled = enabled
-        alarm.fireDate = fireDate
-        UserController.shared.saveToPersistentStore()
-    }
+//    func updateAlarm(alarm: Alarm, name: String, fireDate:Date, enabled: Bool){
+//        alarm.name = name
+//        alarm.enabled = enabled
+//        alarm.fireDate = fireDate
+//        UserController.shared.saveToPersistentStore()
+//    }
     
     func deleteAlarm(alarm: Alarm){
         let moc = CoreDataStack.context
@@ -46,7 +46,9 @@ extension MedsAlertController{
     func scheduleMedNotifications(for alarm: Alarm){
         let content = UNMutableNotificationContent()
         content.title = alarm.name ?? "Time to take your medication"
-        let date = Calendar.current.dateComponents([.hour, .minute], from: alarm.fireDate!)
+        var date = DateComponents()
+        date.hour = alarm.hour as! Int
+        
         let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
         let request = UNNotificationRequest(identifier: alarm.uuid!, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request) { (error) in

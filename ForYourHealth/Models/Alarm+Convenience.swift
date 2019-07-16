@@ -9,24 +9,25 @@
 import Foundation
 import CoreData
 
-extension Alarm{
-    var fireTimeAsString: String {
-        return (fireDate?.toStringWith(dateStyle: .none, timeStyle: .short))!
-    }
+extension Alarm {
     
-    convenience init(withUser user: User, name:String, enabled:Bool = true, fireDate:Date,uuid: String = UUID().uuidString, context: NSManagedObjectContext = CoreDataStack.context){
+    
+    convenience init(withUser user: User, name:String, enabled:Bool = true, hour:Int, minute:Int, amOrPm: String ,uuid: String = UUID().uuidString, context: NSManagedObjectContext = CoreDataStack.context){
         self.init(context: context)
-        self.fireDate = fireDate
-        self.user = user
+        self.hour = Int64(hour)
+        self.minute = Int64(minute)
+        self.amOrPm = amOrPm
         self.enabled = enabled
         self.uuid = uuid
         self.name = name
         
     }
     
-    convenience init(withMedication medication: MedIcation, enabled:Bool = true, fireDate:Date,uuid: String = UUID().uuidString, name:String, context: NSManagedObjectContext = CoreDataStack.context){
+    convenience init(withMedication medication: MedIcation, enabled:Bool = true,uuid: String = UUID().uuidString, hour:Int, minute:Int, amOrPm: String , name:String, context: NSManagedObjectContext = CoreDataStack.context){
         self.init(context: context)
-        self.fireDate = fireDate
+        self.hour = Int64(hour)
+        self.minute = Int64(minute)
+        self.amOrPm = amOrPm
         self.medication = medication
         self.enabled = enabled
         self.uuid = uuid
