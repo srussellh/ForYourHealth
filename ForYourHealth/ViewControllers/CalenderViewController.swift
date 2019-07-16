@@ -40,22 +40,22 @@ class CalenderViewController: UIViewController, UICollectionViewDelegate, UIColl
         updateView()
     }
     @IBAction func leftArrowButtonPressed(_ sender: Any) {
-        if month == 0 {
-            month = 11
+        if monthIndex == 0 {
+            monthIndex = 11
             currentYear -= 1
             direction = -1
             getStartDateDayPosition()
             updateView()
         } else {
-            month -= 1
+            monthIndex -= 1
             direction = -1
             getStartDateDayPosition()
             updateView()
         }
     }
     @IBAction func rightArrowPressed(_ sender: Any) {
-        if month == 11 {
-            month = 0
+        if monthIndex == 11 {
+            monthIndex = 0
             currentYear += 1
             direction = 1
             getStartDateDayPosition()
@@ -63,7 +63,7 @@ class CalenderViewController: UIViewController, UICollectionViewDelegate, UIColl
         } else {
             direction = 1
             getStartDateDayPosition()
-            month += 1
+            monthIndex += 1
             updateView()
         }
     }
@@ -89,10 +89,10 @@ class CalenderViewController: UIViewController, UICollectionViewDelegate, UIColl
             }
             positionIndex = numberOfEmptyBox
         case 1...:
-            nextNumberOfEmptyBox = (positionIndex + daysInMonth[month]) % 7
+            nextNumberOfEmptyBox = (positionIndex + daysInMonth[monthIndex]) % 7
             positionIndex = nextNumberOfEmptyBox
         case -1:
-            previousNumberOfEmptyBox = (7 - (daysInMonth[month] - positionIndex) % 7)
+            previousNumberOfEmptyBox = (7 - (daysInMonth[monthIndex] - positionIndex) % 7)
             if previousNumberOfEmptyBox == 7 {
                 previousNumberOfEmptyBox = 0
             }
@@ -143,16 +143,29 @@ class CalenderViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func updateView(){
-        currentMonth = months[month]
+        currentMonth = months[monthIndex]
         monthLabel.text = "\(currentMonth) \(currentYear)"
         calender.reloadData()
     }
     
     func leapYear() -> Int{
-        if ((currentYear - 1804) % 4 == 0) && month == 1{
+        if ((currentYear - 1804) % 4 == 0) && monthIndex == 1{
             return 29
         }else {
-            return daysInMonth[month]
+            return daysInMonth[monthIndex]
+        }
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDateDetail" {
+            guard let indexPath = calender.indexPathsForSelectedItems,
+                let destinationVC = segue.destination as? DateDetailViewController else {return}
+            let month = months[monthIndex]
+            let yearToPass = year
+            let day = indexPath[0].row
+//            let day = recipesList[indexPath[0].row]
+            destinationVC.month = month
+            destinationVC.year = yearToPass
+            destinationVC.day = day
         }
     }
 }

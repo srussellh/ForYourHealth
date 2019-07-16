@@ -15,9 +15,10 @@ class MedicationController{
     
     
     
-    func createMedication(name:String, user:User){
-        MedIcation(name: name, user: user)
+    @discardableResult func createMedication(name:String, user:User) -> MedIcation{
+        let med = MedIcation(name: name, user: user)
         UserController.shared.saveToPersistentStore()
+        return med
     }
     func updateMedication(medication: MedIcation, name: String){
         medication.name = name

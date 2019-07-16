@@ -17,8 +17,8 @@ class UserAlarmController {
         let alarm = Alarm(withUser: user, name: name, hour: hour, minute: minute, amOrPm: amOrPm, weekdays: weekdays)
         for weekday in weekdays{
             scheduleUserNotifications(for: alarm, weekday: weekday)
+            UserController.shared.saveToPersistentStore()
         }
-        UserController.shared.saveToPersistentStore()
     }
     
     func toggleSwitch(alarm: Alarm){
@@ -63,8 +63,8 @@ extension UserAlarmController{
             if let error = error {
                 print("unable to schedule local notification request: \(error) : \(error.localizedDescription)")
             }
+            print("\(date.weekday), \(date.hour), \(date.minute)")
         }
-        print("\(date.weekday), \(date.hour), \(date.minute)")
     }
     
     func cancelUserNotifications(for alarm: Alarm){
