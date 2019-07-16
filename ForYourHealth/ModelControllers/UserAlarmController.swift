@@ -12,9 +12,9 @@ import UserNotifications
 class UserAlarmController {
     static let shared = UserAlarmController()
     
-    func createAlarm(user: User, name:String, hour:Int, minute:Int, amOrPm: String, weekdays: [Int]){
+    func createAlarm(user: User, name:String, hour:Int, minute:Int, amOrPm: Int, weekdays: [Int]){
         
-        let alarm = Alarm(withUser: user, name: name, hour: hour, minute: minute, amOrPm: amOrPm)
+        let alarm = Alarm(withUser: user, name: name, hour: hour, minute: minute, amOrPm: amOrPm, weekdays: weekdays)
         for weekday in weekdays{
             scheduleUserNotifications(for: alarm, weekday: weekday)
         }
@@ -24,15 +24,11 @@ class UserAlarmController {
     func toggleSwitch(alarm: Alarm){
         alarm.enabled = !alarm.enabled
         if alarm.enabled == true {
-            for weekday in alarm.weekdays! {
-                guard let weekday = weekday as? Int else {return}
-                scheduleUserNotifications(for: alarm, weekday: weekday)
+            for weekday in alarm.weekdays {
+                scheduleUserNotifications(for: alarm, weekday: Int(weekday))
             }
         }else{
-            for weekday in alarm.weekdays! {
-                guard let weekday = weekday as? Int16 else {return}
-                cancelUserNotifications(for: alarm, weekday: weekday)
-            }
+                cancelUserNotifications(for: alarm)
         }
         UserController.shared.saveToPersistentStore()
     }
@@ -68,9 +64,10 @@ extension UserAlarmController{
                 print("unable to schedule local notification request: \(error) : \(error.localizedDescription)")
             }
         }
+        print("\(date.weekday), \(date.hour), \(date.minute)")
     }
     
-    func cancelUserNotifications(for alarm: Alarm, weekday:Int16){
+    func cancelUserNotifications(for alarm: Alarm){
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [alarm.uuid!])
     }
 }

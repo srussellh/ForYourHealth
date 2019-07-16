@@ -18,6 +18,7 @@ class CreateSymptomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     @IBAction func cancelButtonPressed(_ sender: Any) {
         navigationController?.popViewController(animated: true)

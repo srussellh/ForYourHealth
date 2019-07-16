@@ -12,16 +12,20 @@ import UserNotifications
 class MedsAlertController {
     static let shared = MedsAlertController()
     
-    func createAlarm(medication: MedIcation, name:String, hour:Int, minute:Int, amOrPm: String){
-        let alarm = Alarm(withMedication: medication, hour: hour, minute: minute, amOrPm: amOrPm, name: name)
-        scheduleMedNotifications(for: alarm)
+    func createAlarm(medication: MedIcation, name:String, hour:Int, minute:Int, amOrPm: Int, weekdays: [Int]){
+        let alarm = Alarm(withMedication: medication, hour: hour, minute: minute, amOrPm: amOrPm, weekdays: weekdays, name: name)
+        for weekday in weekdays {
+        scheduleMedNotifications(for: alarm, weekday: weekday)
+        }
         UserController.shared.saveToPersistentStore()
     }
     
     func toggleSwitch(alarm: Alarm){
         alarm.enabled = !alarm.enabled
         if alarm.enabled == true {
-            scheduleMedNotifications(for: alarm)
+            for weekday in alarm.weekdays {
+                scheduleMedNotifications(for: alarm, weekday: Int(weekday))
+            }
         }else{
             cancelMedNotifications(for: alarm)
         }
@@ -43,11 +47,14 @@ class MedsAlertController {
 }
 
 extension MedsAlertController{
-    func scheduleMedNotifications(for alarm: Alarm){
+    func scheduleMedNotifications(for alarm: Alarm, weekday:Int){
         let content = UNMutableNotificationContent()
         content.title = alarm.name ?? "Time to take your medication"
+        
         var date = DateComponents()
-        date.hour = alarm.hour as! Int
+        date.weekday = weekday
+        date.hour = Int(alarm.hour)
+        date.minute = Int(alarm.minute)
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
         let request = UNNotificationRequest(identifier: alarm.uuid!, content: content, trigger: trigger)

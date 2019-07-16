@@ -10,11 +10,12 @@ import UIKit
 
 class CreateAlarmTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-
-    var weekdays: [Int16] = []
+    let user = UserController.shared.user
+    var weekdays: [Int] = []
     var pickerData: [[String]] = [[String]]()
-        
-    
+    var hour = Int()
+    var minute = Int()
+    var amOrPm = Int()
     
     
     @IBOutlet weak var picker: UIPickerView!
@@ -94,6 +95,16 @@ class CreateAlarmTableViewController: UITableViewController, UIPickerViewDelegat
         guard let name = alertTitle.text else {return}
 //        let date = datePicker.date
 //        UserAlarmController.shared.createAlarm(user: UserController.shared.user, name: name, fireDate: date, weekdays: weekdays)
+        if amOrPm == 1 && hour == 12 {
+            hour = 0
+        }else if amOrPm == 1 {
+            hour = hour + 13
+        } else {
+            hour = hour + 1
+        }
+        UserAlarmController.shared.createAlarm(user: user, name: name, hour: hour, minute: minute, amOrPm: amOrPm, weekdays: weekdays)
+        navigationController?.popViewController(animated: true)
+        
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -116,7 +127,14 @@ class CreateAlarmTableViewController: UITableViewController, UIPickerViewDelegat
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
+        if component == 0 {
+            hour = row
+        } else if component == 1 {
+            minute = row
+        } else if component == 2 {
+            amOrPm = row
+        }
+        print("hour\(hour),minute\(minute),amOrPM\(amOrPm)")
     }
     
     // MARK: - Table view data source

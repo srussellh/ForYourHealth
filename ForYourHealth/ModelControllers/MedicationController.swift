@@ -7,9 +7,13 @@
 //
 
 import Foundation
+import CoreData
 
 class MedicationController{
     static let shared = MedicationController()
+    
+    
+    
     
     func createMedication(name:String, user:User){
         MedIcation(name: name, user: user)

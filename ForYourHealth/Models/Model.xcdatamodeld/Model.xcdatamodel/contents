@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18F203" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Alarm" representedClassName="Alarm" syncable="YES" codeGenerationType="class">
-        <attribute name="amOrPm" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="Alarm" representedClassName="Alarm" syncable="YES">
+        <attribute name="amOrPm" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="enabled" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="hour" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="minute" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weekdays" optional="YES" attributeType="Transformable" syncable="YES"/>
         <relationship name="medication" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MedIcation" inverseName="alarm" inverseEntity="MedIcation" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="alarm" inverseEntity="User" syncable="YES"/>
-        <relationship name="weekdays" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Weekdays" inverseName="alarm" inverseEntity="Weekdays" syncable="YES"/>
     </entity>
     <entity name="Entry" representedClassName="Entry" syncable="YES" codeGenerationType="class">
         <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
@@ -45,10 +45,6 @@
         <relationship name="medication" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="MedIcation" inverseName="user" inverseEntity="MedIcation" syncable="YES"/>
         <relationship name="symptoms" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Symptom" inverseName="user" inverseEntity="Symptom" syncable="YES"/>
     </entity>
-    <entity name="Weekdays" representedClassName="Weekdays" syncable="YES" codeGenerationType="class">
-        <attribute name="weekdayInt" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="alarm" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Alarm" inverseName="weekdays" inverseEntity="Alarm" syncable="YES"/>
-    </entity>
     <elements>
         <element name="Alarm" positionX="0" positionY="90" width="128" height="180"/>
         <element name="Entry" positionX="9" positionY="99" width="128" height="90"/>
@@ -57,6 +53,5 @@
         <element name="Rating" positionX="27" positionY="108" width="128" height="90"/>
         <element name="Symptom" positionX="-18" positionY="45" width="128" height="90"/>
         <element name="User" positionX="-45" positionY="0" width="128" height="135"/>
-        <element name="Weekdays" positionX="18" positionY="108" width="128" height="75"/>
     </elements>
 </model>
