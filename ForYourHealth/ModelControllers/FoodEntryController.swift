@@ -12,13 +12,12 @@ import CoreData
 class FoodEntryController {
     static let shared = FoodEntryController ()
     
-    func createFoodEntry(meal: String, detail: String, user: User){
-        FoodEntry(details: detail, meal: meal, user: user)
+    func createFoodEntry(detail: String, user: User){
+        FoodEntry(details: detail, user: user)
         UserController.shared.saveToPersistentStore()
     }
     
-    func updateFoodEntry(foodEntry: FoodEntry, meal: String, detail: String){
-        foodEntry.meal = meal
+    func updateFoodEntry(foodEntry: FoodEntry, detail: String){
         foodEntry.details = detail
         UserController.shared.saveToPersistentStore()
     }

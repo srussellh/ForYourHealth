@@ -46,7 +46,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QyM-Gp-nb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-107" y="796"/>
+            <point key="canvasLocation" x="-1420" y="451"/>
         </scene>
         <!--Meds Table View Controller-->
         <scene sceneID="1GC-e3-pJe">
@@ -437,13 +437,14 @@
                         <segue destination="O4w-Wd-2ZU" kind="relationship" relationship="viewControllers" id="aT0-fY-wAr"/>
                         <segue destination="5rX-EW-dqx" kind="relationship" relationship="viewControllers" id="PHE-vA-qO1"/>
                         <segue destination="VRF-3D-FcJ" kind="relationship" relationship="viewControllers" id="bl2-Th-JP3"/>
+                        <segue destination="l2i-Ht-riS" kind="relationship" relationship="viewControllers" id="H4m-p9-XTL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ONT-Gw-T60" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1187" y="796"/>
         </scene>
-        <!--View Controller-->
+        <!--Tracker-->
         <scene sceneID="oew-PF-kQd">
             <objects>
                 <viewController id="l2i-Ht-riS" sceneMemberID="viewController">
@@ -464,17 +465,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Manual"/>
                                 <connections>
-                                    <segue destination="D2p-Ph-OCg" kind="show" id="Gyq-3b-bxt"/>
+                                    <segue destination="xs7-pE-Hb5" kind="show" id="LT4-6e-dNj"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="T2R-Wr-Os9"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Tracker" id="YsB-jC-Zrx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNr-js-xh8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2000" y="2782"/>
+            <point key="canvasLocation" x="-3441" y="1691"/>
         </scene>
         <!--Verbal Symptom View Controller-->
         <scene sceneID="73Y-Gs-H47">
@@ -568,7 +570,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HRm-J7-3Jc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1013.0434782608696" y="2781.6964285714284"/>
+            <point key="canvasLocation" x="-2454" y="1691"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="X8f-8k-uuD">
@@ -596,7 +598,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mp9-XO-so3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="23" y="2782"/>
+            <point key="canvasLocation" x="-1419" y="1691"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="GXb-Gf-dGo">
@@ -614,7 +616,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="utS-Ma-JAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="949" y="2782"/>
+            <point key="canvasLocation" x="-493" y="1691"/>
         </scene>
         <!--Calender-->
         <scene sceneID="HNt-gf-uf2">
@@ -692,7 +694,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BBq-1Y-uUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4055.0724637681164" y="1699.5535714285713"/>
+            <point key="canvasLocation" x="3278" y="2075"/>
         </scene>
         <!--Title-->
         <scene sceneID="6o7-H2-G83">
@@ -844,7 +846,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C7Z-Fe-bdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5110.144927536232" y="1433.7053571428571"/>
+            <point key="canvasLocation" x="4091" y="1691"/>
         </scene>
         <!--Medication-->
         <scene sceneID="cmZ-69-tDG">
@@ -882,7 +884,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="73H-Dc-FjH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3144.9275362318845" y="1699.5535714285713"/>
+            <point key="canvasLocation" x="2180" y="2075"/>
         </scene>
         <!--Create Symptom View Controller-->
         <scene sceneID="kUt-kA-u28">
@@ -927,7 +929,210 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sva-HK-m67" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5111.594202898551" y="2107.3660714285716"/>
+            <point key="canvasLocation" x="4091" y="2485"/>
+        </scene>
+        <!--Manual Symptom View Controller-->
+        <scene sceneID="eod-Hc-oUQ">
+            <objects>
+                <viewController id="xs7-pE-Hb5" customClass="ManualSymptomViewController" customModule="ForYourHealth" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yp5-Ax-nfl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(Symptom)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uea-tv-CyP">
+                                <rect key="frame" x="79" y="124" width="255" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xmh-oj-Uvm">
+                                <rect key="frame" x="52" y="702" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="9"/>
+                                <connections>
+                                    <action selector="nineButtonPressed:" destination="xs7-pE-Hb5" eventType="touchUpInside" id="e0I-z0-qw0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNx-ze-HsR">
+                                <rect key="frame" x="52" y="278" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="1"/>
+                                <connections>
+                                    <action selector="oneButtonPressed:" destination="xs7-pE-Hb5" eventType="touchUpInside" id="0aq-wb-9LE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bkg-o1-Fr2">
+                                <rect key="frame" x="52" y="316" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="2"/>
+                                <connections>
+                                    <action selector="twoButtonPressed:" destination="xs7-pE-Hb5" eventType="touchUpInside" id="wL9-Ur-6mR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ogt-am-oli">
+                                <rect key="frame" x="52" y="362" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="3"/>
+                                <connections>
+                                    <action selector="threeButtonPressed:" destination="xs7-pE-Hb5" eventType="touchUpInside" id="tj1-mB-3Dm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4n-km-GhU">
+                                <rect key="frame" x="52" y="410" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="4"/>
+                                <connections>
+                                    <action selector="fourButtonPressed:" destination="xs7-pE-Hb5" eventType="touchUpInside" id="VlQ-mv-kJl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3U-oj-fRG">
+                                <rect key="frame" x="52" y="462" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="5"/>
+                                <connections>
+                                    <action selector="fiveButtonPressed:" destination="xs7-pE-Hb5" eventType="touchUpInside" id="FRU-7y-urA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TtI-9v-iCJ">
+                                <rect key="frame" x="52" y="528" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="6"/>
+                                <connections>
+                                    <action selector="sixButtonPressed:" destination="xs7-pE-Hb5" eventType="touchUpInside" id="esP-sl-HQI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ld-dZ-L3O">
+                                <rect key="frame" x="52" y="593" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="7"/>
+                                <connections>
+                                    <action selector="sevenButtonPressed:" destination="xs7-pE-Hb5" eventType="touchUpInside" id="vCg-Nf-4T4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRG-xw-eku">
+                                <rect key="frame" x="52" y="755" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="10"/>
+                                <connections>
+                                    <action selector="tenButtonPressed:" destination="xs7-pE-Hb5" eventType="touchUpInside" id="Lrt-S4-FEZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTc-mt-vc9">
+                                <rect key="frame" x="52" y="229" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="0"/>
+                                <connections>
+                                    <action selector="zeroButtonPressed:" destination="xs7-pE-Hb5" eventType="touchUpInside" id="eOy-i8-5FU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ftW-rh-UPF">
+                                <rect key="frame" x="52" y="650" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="8"/>
+                                <connections>
+                                    <action selector="eightButtonPressed:" destination="xs7-pE-Hb5" eventType="touchUpInside" id="OGu-fS-vyU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="gu4-eQ-qoC"/>
+                    </view>
+                    <connections>
+                        <outlet property="eightButton" destination="ftW-rh-UPF" id="0Gf-d6-WgP"/>
+                        <outlet property="fiveButton" destination="N3U-oj-fRG" id="zGQ-gM-q31"/>
+                        <outlet property="fourButton" destination="i4n-km-GhU" id="bC6-33-31a"/>
+                        <outlet property="nineButton" destination="Xmh-oj-Uvm" id="7Be-4g-B7o"/>
+                        <outlet property="oneButton" destination="JNx-ze-HsR" id="I1R-Hc-7tA"/>
+                        <outlet property="sevenButton" destination="2Ld-dZ-L3O" id="F8O-9R-NX4"/>
+                        <outlet property="sixButton" destination="TtI-9v-iCJ" id="Tvw-uE-mmJ"/>
+                        <outlet property="symptomLabel" destination="uea-tv-CyP" id="xma-tT-ycI"/>
+                        <outlet property="tenButton" destination="bRG-xw-eku" id="veF-FE-Opr"/>
+                        <outlet property="threeButton" destination="Ogt-am-oli" id="G68-by-5TV"/>
+                        <outlet property="twoButton" destination="bkg-o1-Fr2" id="R63-6e-z5d"/>
+                        <outlet property="zeroButton" destination="RTc-mt-vc9" id="Ojz-aI-cxh"/>
+                        <segue destination="VuE-E4-Ueg" kind="show" identifier="toManFoodEntry" id="TKC-pZ-7Vj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ST4-EH-mm8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2554" y="2435"/>
+        </scene>
+        <!--Manual Entry View Controller-->
+        <scene sceneID="CLd-eN-64s">
+            <objects>
+                <viewController id="VuE-E4-Ueg" customClass="ManualEntryViewController" customModule="ForYourHealth" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vlX-wT-VGg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NjD-IN-Ng3">
+                                <rect key="frame" x="65" y="278" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKa-6M-Pqu">
+                                <rect key="frame" x="169" y="504" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="nextButtonPressed:" destination="VuE-E4-Ueg" eventType="touchUpInside" id="Mmw-tw-p77"/>
+                                    <segue destination="359-He-oaT" kind="show" id="lET-MU-XDu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="BVY-w4-gnx"/>
+                    </view>
+                    <connections>
+                        <outlet property="entryTextField" destination="NjD-IN-Ng3" id="lp4-Vx-KQY"/>
+                        <outlet property="nextButton" destination="hKa-6M-Pqu" id="ov0-35-FEf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9xS-zQ-qeG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1464" y="2435"/>
+        </scene>
+        <!--Manual Food Entry View Controller-->
+        <scene sceneID="NDe-Dl-iyA">
+            <objects>
+                <viewController id="359-He-oaT" customClass="ManualFoodEntryViewController" customModule="ForYourHealth" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KbF-NV-jlq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9YP-9R-dct">
+                                <rect key="frame" x="184" y="505" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="359-He-oaT" eventType="touchUpInside" id="B1V-ZI-5Sr"/>
+                                    <segue destination="D2p-Ph-OCg" kind="show" id="TCk-zG-HhD"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BH2-8d-1k6">
+                                <rect key="frame" x="87" y="278" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="bvi-6v-RLV"/>
+                    </view>
+                    <connections>
+                        <outlet property="doneButton" destination="9YP-9R-dct" id="aAw-gB-PaA"/>
+                        <outlet property="foodEntryTextField" destination="BH2-8d-1k6" id="QMI-bI-hGq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uRe-G4-REN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-541" y="2435"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
