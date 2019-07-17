@@ -16,16 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .badge, .alert]) { (granted, error) in
+            print("Notifications where granted? \(granted)")
+        }
+        UNUserNotificationCenter.current().delegate = self
         if !UserController.shared.name.isEmpty {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let feedViewController = storyboard.instantiateViewController(withIdentifier: "tabController")
             UIApplication.shared.windows.first?.rootViewController = feedViewController
-            
-            UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .badge, .alert]) { (granted, error) in
-                print("Notifications where granted? \(granted)")
-            }
         }
-        UNUserNotificationCenter.current().delegate = self
         return true
     }
     

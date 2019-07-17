@@ -159,11 +159,22 @@ class CalenderViewController: UIViewController, UICollectionViewDelegate, UIColl
         if segue.identifier == "toDateDetail" {
             guard let indexPath = calender.indexPathsForSelectedItems,
                 let destinationVC = segue.destination as? DateDetailViewController else {return}
-            let month = months[monthIndex]
-            let yearToPass = year
-            let day = indexPath[0].row
-//            let day = recipesList[indexPath[0].row]
-            destinationVC.month = month
+            let month = monthIndex + 1
+            let yearToPass = currentYear
+            var day = 0
+            
+            switch direction{
+            case 0:
+                day = indexPath[0].row + 1 - numberOfEmptyBox
+            case 1...:
+                day = indexPath[0].row + 1 - nextNumberOfEmptyBox
+            case -1:
+                day = indexPath[0].row + 1 - previousNumberOfEmptyBox
+            default:
+                fatalError()
+            }
+            
+            destinationVC.monthPassed = month
             destinationVC.year = yearToPass
             destinationVC.day = day
         }

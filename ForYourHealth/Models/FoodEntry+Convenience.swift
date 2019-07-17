@@ -10,10 +10,9 @@ import Foundation
 import CoreData
 
 extension FoodEntry {
-    @discardableResult convenience init(details: String, meal:String, timeStamp: Date = Date(), user:User, context: NSManagedObjectContext = CoreDataStack.context){
+    @discardableResult convenience init(details: String, timeStamp: Date = Date(), user:User, context: NSManagedObjectContext = CoreDataStack.context){
         self.init(context: context)
         self.details = details
-        self.meal = meal
         self.timeStamp = timeStamp
         self.user = user
     }
