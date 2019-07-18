@@ -69,6 +69,14 @@ class ProfileTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0{
+            performSegue(withIdentifier: "toExistingSymptom", sender: nil)
+        }else {
+            performSegue(withIdentifier: "toExistingAlarm", sender: nil)
+        }
+    }
+    
     
     /*
      // Override to support conditional editing of the table view.
@@ -78,43 +86,40 @@ class ProfileTableViewController: UITableViewController {
      }
      */
     
-    /*
+    
      // Override to support editing the table view.
      override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
      if editingStyle == .delete {
-     // Delete the row from the data source
+        if indexPath.section == 0 {
+            guard let symptom = user.symptoms?.object(at: indexPath.row) as? Symptom
+                else {return}
+            SymptomController.shared.deleteSymptom(symptom: symptom)
+        } else {
+            guard let alarm = user.alarm?.object(at: indexPath.row) as? Alarm else {return}
+            UserAlarmController.shared.deleteAlarm(alarm: alarm)
+        }
      tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
      }
      }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destination.
      // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "toExistingSymptom" {
+            guard let indexPath = tableView.indexPathForSelectedRow,
+            let symptom = user.symptoms?.object(at: indexPath.row) as? Symptom,
+                let destinationVC = segue.destination as? CreateSymptomViewController else {return}
+            destinationVC.symptom = symptom
+        } else if segue.identifier == "toExistingAlarm"{
+            guard let indexPath = tableView.indexPathForSelectedRow,
+            let alarm = user.alarm?.object(at: indexPath.row) as? Alarm,
+                let desinationVC = segue.destination as? CreateAlarmTableViewController else {return}
+            desinationVC.alarm = alarm
+        }
      }
-     */
-    
 }
 
 extension ProfileTableViewController {
