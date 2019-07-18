@@ -10,10 +10,11 @@ import Foundation
 import CoreData
 
 extension Entry {
+    
     @discardableResult convenience init(body:String, timeStamp: Date = Date(), user:User, context: NSManagedObjectContext = CoreDataStack.context){
         self.init(context: context)
         self.body = body
-        self.timeStamp = timeStamp
+        self.timeStamp = timeStamp.atNoon()
         self.user = user
     }
 }

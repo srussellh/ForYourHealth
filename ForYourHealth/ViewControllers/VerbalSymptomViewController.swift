@@ -62,9 +62,15 @@ class VerbalSymptomViewController: UIViewController, AVSpeechSynthesizerDelegate
                     self.symptomLabel.text = symptom.detail
                     self.utterence = AVSpeechUtterance(string: self.symptomLabel.text!)
                     self.utterence.rate = 0.4
-                    self.utterence.volume = 100.0
+                    self.utterence.volume = 1.0
+//                    do {
+//                    try AVAudioSession().setCategory(.playAndRecord, mode: .default, policy: .default, options: .defaultToSpeaker)
+//                    }catch{
+//                        print(error)
+//                    }
                     self.synth.speak(self.utterence)
                     self.synth.delegate = self
+                    
                 }
             }
         }
@@ -141,7 +147,7 @@ class VerbalSymptomViewController: UIViewController, AVSpeechSynthesizerDelegate
             RatingController.shared.createRating(number: "8", symptom: symptom)
         } else if response.contains("nine"){
             RatingController.shared.createRating(number: "9", symptom: symptom)
-        } else if response.contains("ten"){
+        } else if response.contains("ten") || response.contains("10") || response.contains("den"){
             RatingController.shared.createRating(number: "10", symptom: symptom)
         } else if response.contains("zero"){
             RatingController.shared.createRating(number: "0", symptom: symptom)
@@ -154,7 +160,7 @@ class VerbalSymptomViewController: UIViewController, AVSpeechSynthesizerDelegate
     func speechRecognitionTask(_ task: SFSpeechRecognitionTask, didFinishSuccessfully successfully: Bool) {
         self.timer?.invalidate()
         guard let symptomIndex = symptomIndex else {return}
-        guard  index < (symptomIndex) else { performSegue(withIdentifier: "toFoodEntry", sender: nil); return }
+        guard  index < (symptomIndex) else { performSegue(withIdentifier: "toJournalEntry", sender: nil); return }
         guard let symptom = self.user.symptoms?.object(at: self.index) as? Symptom else {return}
         symptomLabel.text = symptom.detail
         self.requestSpeechAuth()

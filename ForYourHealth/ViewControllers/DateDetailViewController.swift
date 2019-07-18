@@ -9,12 +9,21 @@
 import UIKit
 import CoreData
 
-class DateDetailViewController: UIViewController {
+class DateDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    
 
     var monthPassed = Int()
     var year = Int()
     var day = Int()
+    var entriesList: [Entry]?
+    var ratingsList: [Rating]?
+    var foodEntriesList: [FoodEntry]?
+    var segmentIndex = 1
     
+    @IBOutlet weak var segmentController: UISegmentedControl!
+    @IBOutlet weak var displayTable: UITableView!
+    @IBOutlet weak var headerLabel: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,68 +32,113 @@ class DateDetailViewController: UIViewController {
         components.day = day
         components.year = year
         components.month = monthPassed
-        let date = calendar.date(from: components)
-        print(date!)
+        guard let date = calendar.date(from: components) else {return}
+        headerLabel.title = date.monthDay
+        fetchEntry(date: date)
+        fetchRatings(date: date)
+        fetchFoodEntry(date: date)
         
     }
     
-//    var entries: [Entry]{
-//        let moc = CoreDataStack.context
-//        let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
-//        let result = (try? moc.fetch(fetchRequest))
-//        return result ?? []
-//    }
-//
-//    var symptoms: [Symptom]{
-//        let moc = CoreDataStack.context
-//        let fetchRequest: NSFetchRequest<Symptom> = Symptom.fetchRequest()
-//        let result = (try? moc.fetch(fetchRequest))
-//        return result ?? []
-//    }
-//    var foodEntries: [FoodEntry]{
-//        let moc = CoreDataStack.context
-//        let fetchRequest: NSFetchRequest<FoodEntry> = FoodEntry.fetchRequest()
-//        let result = (try? moc.fetch(fetchRequest))
-//        return result ?? []
-//    }
+    @IBAction func segmentControllerChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            segmentIndex = 1
+            displayTable.reloadData()
+        case 1:
+            segmentIndex = 2
+            displayTable.reloadData()
+        case 2:
+            segmentIndex = 3
+            displayTable.reloadData()
+        default:
+            segmentIndex = 1
+            displayTable.reloadData()
+        }
+    }
     
-    func fetchEntry(date:Date) -> [Entry]{
+    
+    
+    func fetchEntry(date:Date) {
         let moc = CoreDataStack.context
         let entryFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Entry")
-        entryFetch.predicate = NSPredicate(format: "timeStamp == %@", date as NSDate)
+        entryFetch.predicate = NSPredicate(format: "timeStamp == %@", date.atNoon() as NSDate)
         do {
             let fetchedEntries = try moc.fetch(entryFetch) as! [Entry]
             let entries = fetchedEntries
-            return entries
+            entriesList = entries
         } catch {
-            fatalError("Failed to fetch employees: \(error)")
+            fatalError("Failed to fetch Entries: \(error)")
         }
     }
 
-    func fetchSymptoms(date:Date) -> [Symptom]{
+    func fetchRatings(date:Date) {
         let moc = CoreDataStack.context
-        let symptomsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Symptom")
-        symptomsFetch.predicate = NSPredicate(format: "timeStamp == %@", date as NSDate)
+        let ratingsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Rating")
+        ratingsFetch.predicate = NSPredicate(format: "timeStamp == %@", date.atNoon() as NSDate)
         do {
-            let fetchedSymptoms = try moc.fetch(symptomsFetch) as! [Symptom]
-            let symptoms = fetchedSymptoms
-            return symptoms
+            let fetchedSymptoms = try moc.fetch(ratingsFetch) as! [Rating]
+            let rating = fetchedSymptoms
+            ratingsList = rating
         } catch {
-            fatalError("Failed to fetch employees: \(error)")
+            fatalError("Failed to fetch Symptoms: \(error)")
         }
 
     }
 
-    func fetchFoodEntry(date:Date) -> [FoodEntry]{
+    func fetchFoodEntry(date:Date) {
         let moc = CoreDataStack.context
         let foodEntriesFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "FoodEntry")
-        foodEntriesFetch.predicate = NSPredicate(format: "timeStamp == %@", date as NSDate)
+        foodEntriesFetch.predicate = NSPredicate(format: "timeStamp == %@", date.atNoon() as NSDate)
         do {
             let fetchedFoodEntries = try moc.fetch(foodEntriesFetch) as! [FoodEntry]
             let foodEntries = fetchedFoodEntries
-            return foodEntries
+            foodEntriesList = foodEntries
         } catch {
-            fatalError("Failed to fetch employees: \(error)")
+            fatalError("Failed to fetch FoodEntries: \(error)")
+        }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch segmentIndex {
+        case 1:
+            guard let entriesCount = entriesList?.count else {return 0}
+            return entriesCount
+        case 2:
+            guard let ratingsCount = ratingsList?.count else {return 0}
+            return ratingsCount
+        case 3:
+            guard let foodEntriesCount = foodEntriesList?.count else {return 0}
+            return foodEntriesCount
+        default:
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as? DateDetailTableViewCell else {return UITableViewCell()}
+        switch segmentIndex {
+        case 1:
+            guard let entries = entriesList else {return UITableViewCell()}
+            cell.titleLabel.text = entries[indexPath.row].body
+            cell.ratingLabel.text = ""
+            return cell
+        case 2:
+           guard let ratings = ratingsList else {return UITableViewCell()}
+            cell.titleLabel.text = ratings[indexPath.row].symptom?.detail
+            cell.ratingLabel.text = ratings[indexPath.row].number
+            return cell
+        case 3:
+            guard let foodEntries = foodEntriesList else {return UITableViewCell()}
+            cell.titleLabel.text = foodEntries[indexPath.row].details
+            cell.ratingLabel.text = ""
+            return cell
+        default:
+            guard let entries = entriesList else {return UITableViewCell()}
+            cell.titleLabel.text = entries[indexPath.row].body
+            cell.ratingLabel.text = ""
+            return cell
         }
     }
 }

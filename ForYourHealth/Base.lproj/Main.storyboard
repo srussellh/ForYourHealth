@@ -398,7 +398,7 @@
             </objects>
             <point key="canvasLocation" x="3089.8550724637685" y="795.53571428571422"/>
         </scene>
-        <!--Date Detail View Controller-->
+        <!--Title-->
         <scene sceneID="G5j-ac-wYr">
             <objects>
                 <viewController id="1EK-xX-c5a" customClass="DateDetailViewController" customModule="ForYourHealth" customModuleProvider="target" sceneMemberID="viewController">
@@ -406,19 +406,81 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ywm-Pp-sh9">
-                                <rect key="frame" x="83" y="129" width="248" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ywm-Pp-sh9">
+                                <rect key="frame" x="50" y="96" width="314" height="29"/>
                                 <segments>
                                     <segment title="Journal"/>
                                     <segment title="Symptoms"/>
                                     <segment title="Food Entries"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentControllerChanged:" destination="1EK-xX-c5a" eventType="valueChanged" id="Mem-Ns-qaT"/>
+                                </connections>
                             </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fYN-5V-ARw">
+                                <rect key="frame" x="20" y="132" width="374" height="673"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailCell" rowHeight="89" id="L8m-da-4Fp" customClass="DateDetailTableViewCell" customModule="ForYourHealth" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="89"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L8m-da-4Fp" id="2dr-5b-JdV">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="88.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="(Title)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGv-F0-yFm">
+                                                    <rect key="frame" x="0.0" y="15" width="277.5" height="59"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(rating)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4z-pW-dk3">
+                                                    <rect key="frame" x="297.5" y="15" width="56.5" height="59"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="N4z-pW-dk3" firstAttribute="leading" secondItem="DGv-F0-yFm" secondAttribute="trailing" constant="20" id="8g1-Z0-L57"/>
+                                                <constraint firstAttribute="trailing" secondItem="N4z-pW-dk3" secondAttribute="trailing" constant="20" id="9gI-uT-Qwn"/>
+                                                <constraint firstItem="DGv-F0-yFm" firstAttribute="leading" secondItem="2dr-5b-JdV" secondAttribute="leading" id="Rbl-Lq-Bdt"/>
+                                                <constraint firstItem="N4z-pW-dk3" firstAttribute="top" secondItem="2dr-5b-JdV" secondAttribute="topMargin" constant="4" id="TYS-2Q-IQm"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="DGv-F0-yFm" secondAttribute="bottom" constant="4" id="lag-EW-kEc"/>
+                                                <constraint firstItem="DGv-F0-yFm" firstAttribute="top" secondItem="2dr-5b-JdV" secondAttribute="topMargin" constant="4" id="pyb-U8-maL"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="N4z-pW-dk3" secondAttribute="bottom" constant="4" id="zRq-eH-cqd"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ratingLabel" destination="N4z-pW-dk3" id="9Du-vx-MUd"/>
+                                            <outlet property="titleLabel" destination="DGv-F0-yFm" id="QXS-YP-Q84"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="1EK-xX-c5a" id="r2h-jq-SNR"/>
+                                    <outlet property="delegate" destination="1EK-xX-c5a" id="Dyc-gL-3OK"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WVg-0b-AEF" firstAttribute="trailing" secondItem="fYN-5V-ARw" secondAttribute="trailing" constant="20" id="HLA-EE-QFb"/>
+                            <constraint firstItem="fYN-5V-ARw" firstAttribute="top" secondItem="ywm-Pp-sh9" secondAttribute="bottom" constant="8" id="NSq-bn-2P0"/>
+                            <constraint firstItem="ywm-Pp-sh9" firstAttribute="top" secondItem="WVg-0b-AEF" secondAttribute="top" constant="8" id="OB1-VI-JVc"/>
+                            <constraint firstItem="ywm-Pp-sh9" firstAttribute="leading" secondItem="WVg-0b-AEF" secondAttribute="leading" constant="50" id="cCJ-BF-fQk"/>
+                            <constraint firstItem="WVg-0b-AEF" firstAttribute="bottom" secondItem="fYN-5V-ARw" secondAttribute="bottom" constant="8" id="cNr-Gd-22s"/>
+                            <constraint firstItem="WVg-0b-AEF" firstAttribute="trailing" secondItem="ywm-Pp-sh9" secondAttribute="trailing" constant="50" id="f8U-H3-094"/>
+                            <constraint firstItem="fYN-5V-ARw" firstAttribute="leading" secondItem="WVg-0b-AEF" secondAttribute="leading" constant="20" id="zJj-le-xz3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="WVg-0b-AEF"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="JEO-Qh-N5o"/>
+                    <connections>
+                        <outlet property="displayTable" destination="fYN-5V-ARw" id="dEj-5f-6yh"/>
+                        <outlet property="headerLabel" destination="JEO-Qh-N5o" id="Ghd-v8-B0d"/>
+                        <outlet property="segmentController" destination="ywm-Pp-sh9" id="EdO-kq-g3v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xkZ-6h-r0b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -565,17 +627,17 @@
                         <outlet property="threeButton" destination="lzY-ng-cmX" id="dG2-2F-NCH"/>
                         <outlet property="twoButton" destination="d1O-no-dd7" id="0kh-PM-fGC"/>
                         <outlet property="zeroButton" destination="Y2M-ch-QhP" id="9RL-bG-4RQ"/>
-                        <segue destination="UYh-SF-crY" kind="show" identifier="toFoodEntry" id="Izs-w6-mds"/>
+                        <segue destination="UYh-SF-crY" kind="show" identifier="toJournalEntry" id="Izs-w6-mds"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HRm-J7-3Jc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2454" y="1691"/>
         </scene>
-        <!--View Controller-->
+        <!--Verbal Entry View Controller-->
         <scene sceneID="X8f-8k-uuD">
             <objects>
-                <viewController id="UYh-SF-crY" sceneMemberID="viewController">
+                <viewController id="UYh-SF-crY" customClass="VerbalEntryViewController" customModule="ForYourHealth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kxH-8z-mNP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -593,25 +655,37 @@
                         <viewLayoutGuide key="safeArea" id="7jm-Hm-yVS"/>
                     </view>
                     <connections>
-                        <segue destination="Rqj-aL-RyF" kind="show" id="L3E-D5-YMN"/>
+                        <outlet property="entryTextField" destination="4KX-fY-uI8" id="jJz-AI-zlv"/>
+                        <segue destination="Rqj-aL-RyF" kind="show" identifier="toFoodEntry" id="L3E-D5-YMN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mp9-XO-so3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1419" y="1691"/>
         </scene>
-        <!--View Controller-->
+        <!--Verbal Food Entry View Controller-->
         <scene sceneID="GXb-Gf-dGo">
             <objects>
-                <viewController id="Rqj-aL-RyF" sceneMemberID="viewController">
+                <viewController id="Rqj-aL-RyF" customClass="VerbalFoodEntryViewController" customModule="ForYourHealth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PiF-b1-imL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rvh-Qa-EvU">
+                                <rect key="frame" x="87" y="234" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="hyh-tW-d0U"/>
                     </view>
                     <connections>
-                        <segue destination="D2p-Ph-OCg" kind="show" id="Wo9-T5-N2t"/>
+                        <outlet property="foodEntryTextField" destination="rvh-Qa-EvU" id="ZkM-Ts-dgH"/>
+                        <segue destination="D2p-Ph-OCg" kind="show" identifier="toTabBar" id="Wo9-T5-N2t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="utS-Ma-JAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1136,7 +1210,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="n8i-Uh-ZMg"/>
+        <segue reference="Wo9-T5-N2t"/>
         <segue reference="cXW-yX-Lvu"/>
     </inferredMetricsTieBreakers>
 </document>

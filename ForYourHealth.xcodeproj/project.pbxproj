@@ -41,6 +41,9 @@
 		02B8A36D22DF7F46005911BB /* ManualSymptomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B8A36C22DF7F46005911BB /* ManualSymptomViewController.swift */; };
 		02B8A36F22DF8772005911BB /* ManualEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B8A36E22DF8772005911BB /* ManualEntryViewController.swift */; };
 		02B8A37122DF8A7B005911BB /* ManualFoodEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B8A37022DF8A7B005911BB /* ManualFoodEntryViewController.swift */; };
+		02B8A37322DFB76D005911BB /* DateDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B8A37222DFB76D005911BB /* DateDetailTableViewCell.swift */; };
+		02B8A37522DFE6B8005911BB /* VerbalEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B8A37422DFE6B8005911BB /* VerbalEntryViewController.swift */; };
+		02B8A37722DFEA70005911BB /* VerbalFoodEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B8A37622DFEA70005911BB /* VerbalFoodEntryViewController.swift */; };
 		02E3640C22DE3FF70061DD23 /* Alarm+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E3640A22DE3FF70061DD23 /* Alarm+CoreDataClass.swift */; };
 		02E3640D22DE3FF70061DD23 /* Alarm+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E3640B22DE3FF70061DD23 /* Alarm+CoreDataProperties.swift */; };
 		02E3640F22DE56080061DD23 /* MedsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E3640E22DE56080061DD23 /* MedsTableViewController.swift */; };
@@ -84,6 +87,9 @@
 		02B8A36C22DF7F46005911BB /* ManualSymptomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualSymptomViewController.swift; sourceTree = "<group>"; };
 		02B8A36E22DF8772005911BB /* ManualEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualEntryViewController.swift; sourceTree = "<group>"; };
 		02B8A37022DF8A7B005911BB /* ManualFoodEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualFoodEntryViewController.swift; sourceTree = "<group>"; };
+		02B8A37222DFB76D005911BB /* DateDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDetailTableViewCell.swift; sourceTree = "<group>"; };
+		02B8A37422DFE6B8005911BB /* VerbalEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalEntryViewController.swift; sourceTree = "<group>"; };
+		02B8A37622DFEA70005911BB /* VerbalFoodEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalFoodEntryViewController.swift; sourceTree = "<group>"; };
 		02E3640A22DE3FF70061DD23 /* Alarm+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alarm+CoreDataClass.swift"; sourceTree = "<group>"; };
 		02E3640B22DE3FF70061DD23 /* Alarm+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alarm+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		02E3640E22DE56080061DD23 /* MedsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedsTableViewController.swift; sourceTree = "<group>"; };
@@ -181,7 +187,9 @@
 				025D305222DCF04000A9D94C /* CreateAlarmTableViewController.swift */,
 				025D303D22D6A81B00A9D94C /* VerbalSymptomViewController.swift */,
 				02B8A36C22DF7F46005911BB /* ManualSymptomViewController.swift */,
+				02B8A37422DFE6B8005911BB /* VerbalEntryViewController.swift */,
 				02B8A36E22DF8772005911BB /* ManualEntryViewController.swift */,
+				02B8A37622DFEA70005911BB /* VerbalFoodEntryViewController.swift */,
 				02B8A37022DF8A7B005911BB /* ManualFoodEntryViewController.swift */,
 				025D303422D689D400A9D94C /* CreateUserViewController.swift */,
 				025D303622D6952000A9D94C /* ProfileTableViewController.swift */,
@@ -189,6 +197,7 @@
 				02B8A36A22DE876E005911BB /* DateDetailViewController.swift */,
 				02E3640E22DE56080061DD23 /* MedsTableViewController.swift */,
 				02E3641022DE5D6D0061DD23 /* CreateMedTableViewController.swift */,
+				02B8A37222DFB76D005911BB /* DateDetailTableViewCell.swift */,
 				025D305A22DD3E7500A9D94C /* CustomCells */,
 			);
 			path = ViewControllers;
@@ -286,6 +295,7 @@
 				025D305C22DD3F6600A9D94C /* CalenderVariables.swift in Sources */,
 				025D302422D54F6000A9D94C /* Rating+Convenience.swift in Sources */,
 				025D305722DD3BE300A9D94C /* CalenderViewController.swift in Sources */,
+				02B8A37322DFB76D005911BB /* DateDetailTableViewCell.swift in Sources */,
 				025D302022D54F2F00A9D94C /* User+Convenience.swift in Sources */,
 				025D303522D689D400A9D94C /* CreateUserViewController.swift in Sources */,
 				025D302E22D6816C00A9D94C /* UserController.swift in Sources */,
@@ -295,6 +305,7 @@
 				025D303722D6952000A9D94C /* ProfileTableViewController.swift in Sources */,
 				02E3640D22DE3FF70061DD23 /* Alarm+CoreDataProperties.swift in Sources */,
 				025D304422DCD82700A9D94C /* EntryController.swift in Sources */,
+				02B8A37522DFE6B8005911BB /* VerbalEntryViewController.swift in Sources */,
 				025D302C22D54FF200A9D94C /* Entry+Convenience.swift in Sources */,
 				025D303B22D6A42B00A9D94C /* CreateSymptomViewController.swift in Sources */,
 				025D304D22DCE1FA00A9D94C /* UserAlarmController.swift in Sources */,
@@ -307,6 +318,7 @@
 				025D305322DCF04000A9D94C /* CreateAlarmTableViewController.swift in Sources */,
 				02410DDA22AB064F00E12608 /* AppDelegate.swift in Sources */,
 				025D301E22D54C2300A9D94C /* CoreDataStack.swift in Sources */,
+				02B8A37722DFEA70005911BB /* VerbalFoodEntryViewController.swift in Sources */,
 				02B8A37122DF8A7B005911BB /* ManualFoodEntryViewController.swift in Sources */,
 				025D302622D54F6E00A9D94C /* Medication+Convenience.swift in Sources */,
 				025D305122DCEADB00A9D94C /* MedsAlertController.swift in Sources */,

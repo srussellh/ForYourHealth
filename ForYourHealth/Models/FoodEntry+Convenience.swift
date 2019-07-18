@@ -13,7 +13,7 @@ extension FoodEntry {
     @discardableResult convenience init(details: String, timeStamp: Date = Date(), user:User, context: NSManagedObjectContext = CoreDataStack.context){
         self.init(context: context)
         self.details = details
-        self.timeStamp = timeStamp
+        self.timeStamp = timeStamp.atNoon()
         self.user = user
     }
 }

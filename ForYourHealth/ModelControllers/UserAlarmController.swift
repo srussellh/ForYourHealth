@@ -51,6 +51,8 @@ extension UserAlarmController{
     func scheduleUserNotifications(for alarm: Alarm, weekday:Int){
         let content = UNMutableNotificationContent()
         content.title = alarm.name ?? "Alert"
+        content.sound = .default
+        
         
         var date = DateComponents()
         date.weekday = weekday
