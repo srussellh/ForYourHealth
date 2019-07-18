@@ -13,7 +13,7 @@ extension Rating{
     @discardableResult convenience init(number: String, timeStamp: Date = Date(), symptom: Symptom, context: NSManagedObjectContext = CoreDataStack.context){
         self.init(context: context)
         self.number = number
-        self.timeStamp = timeStamp
+        self.timeStamp = timeStamp.atNoon()
         self.symptom = symptom
     }
 }

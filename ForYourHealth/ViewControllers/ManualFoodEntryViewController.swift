@@ -9,6 +9,9 @@
 import UIKit
 
 class ManualFoodEntryViewController: UIViewController {
+    
+    let user = UserController.shared.user
+    
     @IBOutlet weak var foodEntryTextField: UITextView!
     @IBOutlet weak var doneButton: UIButton!
     
@@ -19,6 +22,8 @@ class ManualFoodEntryViewController: UIViewController {
     }
     
     @IBAction func doneButtonPressed(_ sender: Any) {
+        guard let detail = foodEntryTextField.text else {return}
+        FoodEntryController.shared.createFoodEntry(detail: detail, user: user)
     }
     
     /*
