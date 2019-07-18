@@ -33,12 +33,18 @@ class UserAlarmController {
         UserController.shared.saveToPersistentStore()
     }
     
-//    func updateAlarm(alarm: Alarm, name: String, fireDate:Date, enabled: Bool){
-//        alarm.name = name
-//        alarm.enabled = enabled
-//        alarm.fireDate = fireDate
-//        UserController.shared.saveToPersistentStore()
-//    }
+    func updateAlarm(alarm: Alarm, name:String, hour:Int, minute:Int, amOrPm: Int, weekdays: [Int]){
+        cancelUserNotifications(for: alarm)
+        alarm.name = name
+        alarm.hour = Int64(hour)
+        alarm.minute = Int64(minute)
+        alarm.amOrPm = Int64(amOrPm)
+        alarm.weekdays = (weekdays.map{ Int64($0) })
+        for weekday  in weekdays {
+            scheduleUserNotifications(for: alarm, weekday: weekday)
+            UserController.shared.saveToPersistentStore()
+        }
+    }
     
     func deleteAlarm(alarm: Alarm){
         let moc = CoreDataStack.context
@@ -51,6 +57,7 @@ extension UserAlarmController{
     func scheduleUserNotifications(for alarm: Alarm, weekday:Int){
         let content = UNMutableNotificationContent()
         content.title = alarm.name ?? "Alert"
+        content.body = "Get speaking"
         content.sound = .default
         
         
@@ -65,7 +72,6 @@ extension UserAlarmController{
             if let error = error {
                 print("unable to schedule local notification request: \(error) : \(error.localizedDescription)")
             }
-            print("\(date.weekday), \(date.hour), \(date.minute)")
         }
     }
     

@@ -28,7 +28,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return true
     }
     
-    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        if application.applicationState == .background || application.applicationState == .inactive {
+            print("Shane Is King🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽")
+        } else {
+            print("⛰⛰⛰⛰⛰⛰⛰⛰⛰⛰⛰⛰⛰⛰⛰")
+        }
+    }
+    func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [AnyHashable : Any], withResponseInfo responseInfo: [AnyHashable : Any], completionHandler: @escaping () -> Void) {
+        print("Shane Is King🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽🇸🇽")
+    }
     
 //    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
 //        completionHandler ([.alert, .sound])

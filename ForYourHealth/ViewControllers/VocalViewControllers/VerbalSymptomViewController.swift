@@ -30,6 +30,7 @@ class VerbalSymptomViewController: UIViewController, AVSpeechSynthesizerDelegate
     var utterence = AVSpeechUtterance(string: "")
     var textToRead = ""
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var symptomLabel: UILabel!
     @IBOutlet weak var zeroButton: UIButton!
     @IBOutlet weak var nineButton: UIButton!
@@ -42,15 +43,31 @@ class VerbalSymptomViewController: UIViewController, AVSpeechSynthesizerDelegate
     @IBOutlet weak var sevenButton: UIButton!
     @IBOutlet weak var eightButton: UIButton!
     @IBOutlet weak var tenButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     
     //MARK: -Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleLabel.font = titleFont
+        titleLabel.text = "On a scale from 1 to 10..."
+        titleLabel.textColor = darkShade
+        symptomLabel.textColor = darkAccent
+        symptomLabel.font = titleFont
+        view.backgroundColor = lightShade
         requestSpeechAuth()
     }
     
     deinit {
         timer?.invalidate()
+    }
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        self.recognitionRequest?.endAudio()
+        self.audioEngine.stop()
+        self.recognitionRequest = nil
+        self.recognitionTask?.finish()
+        self.recognitionTask = nil
+        audioEngine.inputNode.removeTap(onBus: 0)
+        performSegue(withIdentifier: "exitToTab", sender: nil)
     }
     
     //MARK: -Functions

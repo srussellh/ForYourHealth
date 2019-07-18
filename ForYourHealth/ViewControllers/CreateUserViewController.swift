@@ -12,11 +12,11 @@ class CreateUserViewController: UIViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var createUserButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        titleLabel.text = "Looks like you are new to the app. Lets start by getting your name."
     }
     @IBAction func createUserButtonTapped(_ sender: Any) {
         guard let name = nameTextField.text else {return}

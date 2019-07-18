@@ -1,5 +1,5 @@
 //
-//  VerbalFoodEntryViewController.swift
+//  VerbalEntryViewController.swift
 //  ForYourHealth
 //
 //  Created by Bobba Kadush on 7/17/19.
@@ -10,8 +10,8 @@ import UIKit
 import Speech
 import AVKit
 
-class VerbalFoodEntryViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeechRecognitionTaskDelegate   {
-    
+class VerbalEntryViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeechRecognitionTaskDelegate   {
+
     let user = UserController.shared.user
     
     let speechRecognizer = SFSpeechRecognizer()
@@ -24,18 +24,28 @@ class VerbalFoodEntryViewController: UIViewController, AVSpeechSynthesizerDelega
     var utterence = AVSpeechUtterance(string: "")
     var textToRead = ""
     
-    @IBOutlet weak var foodEntryTextField: UITextView!
+    @IBOutlet weak var entryTextField: UITextView!
+    @IBOutlet weak var cancelButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         requestSpeechAuth()
+    }
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        self.recognitionRequest?.endAudio()
+        self.audioEngine.stop()
+        self.recognitionRequest = nil
+        self.recognitionTask?.finish()
+        self.recognitionTask = nil
+        audioEngine.inputNode.removeTap(onBus: 0)
+        performSegue(withIdentifier: "exitToTab", sender: nil)
     }
     
     func requestSpeechAuth() {
         SFSpeechRecognizer.requestAuthorization { (authStatus) in
             if authStatus == SFSpeechRecognizerAuthorizationStatus.authorized {
                 DispatchQueue.main.async {
-                    self.utterence = AVSpeechUtterance(string: "What did you have to eat today?")
+                    self.utterence = AVSpeechUtterance(string: "Please discribe your day to me")
                     self.utterence.rate = 0.4
                     self.utterence.volume = 1.0
                     do {
@@ -85,7 +95,7 @@ class VerbalFoodEntryViewController: UIViewController, AVSpeechSynthesizerDelega
     func speechRecognitionTask(_ task: SFSpeechRecognitionTask, didHypothesizeTranscription transcription: SFTranscription) {
         response = transcription.formattedString
         print("Text \(transcription.formattedString)")
-        self.foodEntryTextField.text = transcription.formattedString
+        self.entryTextField.text = transcription.formattedString
         self.timer?.invalidate()
         self.timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: false, block: { [weak self] timer in
             self?.response = transcription.formattedString
@@ -102,7 +112,7 @@ class VerbalFoodEntryViewController: UIViewController, AVSpeechSynthesizerDelega
     }
     func speechRecognitionTask(_ task: SFSpeechRecognitionTask, didFinishSuccessfully successfully: Bool) {
         guard let response = response else {return}
-        FoodEntryController.shared.createFoodEntry(detail: response, user: user)
-        performSegue(withIdentifier: "toTabBar", sender: nil)
+        EntryController.shared.createEntry(body: response, user: user)
+        performSegue(withIdentifier: "toFoodEntry", sender: nil)
     }
 }
