@@ -856,7 +856,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rvh-Qa-EvU">
                                 <rect key="frame" x="41.5" y="120" width="331" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -1373,7 +1373,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NjD-IN-Ng3">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NjD-IN-Ng3">
                                 <rect key="frame" x="41.5" y="129" width="331" height="663"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -1409,7 +1409,6 @@
                             <constraint firstItem="NjD-IN-Ng3" firstAttribute="width" secondItem="vlX-wT-VGg" secondAttribute="width" multiplier="0.8" id="5My-Yc-3Df"/>
                             <constraint firstItem="wks-IO-6z9" firstAttribute="top" secondItem="t1s-t4-LJe" secondAttribute="top" id="PcA-kb-0oi"/>
                             <constraint firstItem="NjD-IN-Ng3" firstAttribute="centerX" secondItem="vlX-wT-VGg" secondAttribute="centerX" id="Qmi-DQ-DiT"/>
-                            <constraint firstItem="NjD-IN-Ng3" firstAttribute="top" secondItem="t1s-t4-LJe" secondAttribute="bottom" constant="35" id="Vlx-I6-Ktm"/>
                             <constraint firstItem="t1s-t4-LJe" firstAttribute="top" secondItem="BVY-w4-gnx" secondAttribute="top" constant="29" id="YDg-Nq-DGF"/>
                             <constraint firstItem="t1s-t4-LJe" firstAttribute="leading" secondItem="BVY-w4-gnx" secondAttribute="leading" constant="29" id="aVa-mU-Efc"/>
                             <constraint firstItem="hKa-6M-Pqu" firstAttribute="top" secondItem="NjD-IN-Ng3" secondAttribute="bottom" constant="20" id="gbA-Nm-EAx"/>

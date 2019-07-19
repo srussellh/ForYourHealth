@@ -34,6 +34,10 @@ class EditFoodEntryViewController: UIViewController {
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(resignAll))
         view.addGestureRecognizer(tapRecognizer)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
     @IBAction func doneButtonPressed(_ sender: Any) {
@@ -44,5 +48,18 @@ class EditFoodEntryViewController: UIViewController {
     @objc func resignAll(){
         foodEntryTextField.resignFirstResponder()
     }
-
+    @objc func keyboardWillChange(notification: Notification){
+        let keyBoardsize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        if notification.name == UIResponder.keyboardWillChangeFrameNotification || notification.name == UIResponder.keyboardWillShowNotification{
+            foodEntryTextField.contentInset = UIEdgeInsets(
+                top: 0.0,
+                left: 0.0,
+                bottom: keyBoardsize.height,
+                right: 0.0
+            )
+            view.layoutIfNeeded()
+        } else {
+            view.frame.origin.y = 0
+        }
+    }
 }
