@@ -63,6 +63,7 @@ class VerbalSymptomViewController: UIViewController, AVSpeechSynthesizerDelegate
         requestSpeechAuth()
         updateView()
         }
+        
     }
     
     deinit {
@@ -91,9 +92,9 @@ class VerbalSymptomViewController: UIViewController, AVSpeechSynthesizerDelegate
                     self.utterence.rate = 0.4
                     self.utterence.volume = 1.0
                     do {
-                    try AVAudioSession().setCategory(.playback, mode: .default, policy: .default, options: .defaultToSpeaker)
+                    try AVAudioSession().setCategory(.playback, mode: .default, policy: .default, options: .allowBluetooth)
                     }catch{
-                        print(error)
+                        print("🚷🚷🚷🚷🚷🚷🚷\(error)🚷🚷🚷🚷🚷🚷🚷🚷")
                     }
                     self.synth.speak(self.utterence)
                     self.synth.delegate = self
