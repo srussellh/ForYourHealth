@@ -39,6 +39,9 @@ class DateDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         fetchFoodEntry(date: date)
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        displayTable.reloadData()
+    }
     
     @IBAction func segmentControllerChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
@@ -116,6 +119,28 @@ class DateDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            switch segmentIndex {
+            case 1:
+                guard let entryToDelete = entriesList?[indexPath.row] else {return}
+                entriesList?.remove(at: indexPath.row)
+                EntryController.shared.deleteEntry(entry: entryToDelete)
+            case 2:
+                guard let ratingToDelete = ratingsList?[indexPath.row] else {return}
+                ratingsList?.remove(at: indexPath.row)
+                RatingController.shared.deleteRating(rating: ratingToDelete)
+            case 3:
+                guard let foodEntryToDelete = foodEntriesList?[indexPath.row] else {return}
+                foodEntriesList?.remove(at: indexPath.row)
+                FoodEntryController.shared.deleteFoodEntry(foodEntry: foodEntryToDelete)
+            default:
+                return
+            }
+        }
+        tableView.deleteRows(at: [indexPath], with: .fade)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as? DateDetailTableViewCell else {return UITableViewCell()}
         switch segmentIndex {
@@ -139,6 +164,36 @@ class DateDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.titleLabel.text = entries[indexPath.row].body
             cell.ratingLabel.text = ""
             return cell
+        }
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch segmentIndex {
+        case 1:
+            performSegue(withIdentifier: "toEditEntry", sender: nil)
+        case 2:
+            performSegue(withIdentifier: "toEditRating", sender: nil)
+        case 3:
+            performSegue(withIdentifier: "toEditFoodEntry", sender: nil)
+        default:
+            performSegue(withIdentifier: "toEditFoodEntry", sender: nil)
+        }
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toEditEntry" {
+            guard let indexPath = displayTable.indexPathForSelectedRow,
+                let entriesList = entriesList,
+                let destinationVC = segue.destination as? EditEntryViewController else {return}
+            destinationVC.entry = entriesList[indexPath.row]
+        } else if segue.identifier == "toEditRating"{
+            guard let indexPath = displayTable.indexPathForSelectedRow,
+            let ratingsList = ratingsList,
+                let destinationVC = segue.destination as? EditRatingViewController else {return}
+            destinationVC.rating = ratingsList[indexPath.row]
+        } else {
+            guard let indexPath = displayTable.indexPathForSelectedRow,
+            let foodEntriesList = foodEntriesList,
+                let destinationVC = segue.destination as? EditFoodEntryViewController else {return}
+            destinationVC.foodEntry = foodEntriesList[indexPath.row]
         }
     }
 }

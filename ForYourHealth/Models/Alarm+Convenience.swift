@@ -23,18 +23,4 @@ extension Alarm {
         self.weekdays = weekdays.map { Int64($0) }
         self.user = user
     }
-    
-    convenience init(withMedication medication: MedIcation, enabled:Bool = true,uuid: String = UUID().uuidString, hour:Int, minute:Int, amOrPm: Int, weekdays:[Int], name:String, context: NSManagedObjectContext = CoreDataStack.context){
-        self.init(context: context)
-        self.hour = Int64(hour)
-        self.minute = Int64(minute)
-        self.amOrPm = Int64(amOrPm)
-        self.medication = medication
-        self.enabled = enabled
-        self.uuid = uuid
-        self.name = name
-        self.weekdays = weekdays.map { Int64($0) }
-        self.medication = medication
-        
-    }
 }

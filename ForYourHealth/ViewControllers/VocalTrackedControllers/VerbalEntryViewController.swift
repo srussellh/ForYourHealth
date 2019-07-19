@@ -26,9 +26,22 @@ class VerbalEntryViewController: UIViewController, AVSpeechSynthesizerDelegate, 
     
     @IBOutlet weak var entryTextField: UITextView!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = lightAccent
+        titleLabel.font = titleFont
+        titleLabel.text = "Journal Entry"
+        titleLabel.textColor = darkShade
+        entryTextField.text = ""
+        entryTextField.font = titleFont
+        entryTextField.textColor = darkShade
+        entryTextField.backgroundColor = lightShade
+        entryTextField.layer.cornerRadius = textFieldRounder
+        cancelButton.setTitle("Exit", for: .normal)
+        cancelButton.titleLabel?.font = cancelFont
+        cancelButton.setTitleColor(darkAccent, for: .normal)
         requestSpeechAuth()
     }
     @IBAction func cancelButtonPressed(_ sender: Any) {
@@ -38,7 +51,8 @@ class VerbalEntryViewController: UIViewController, AVSpeechSynthesizerDelegate, 
         self.recognitionTask?.finish()
         self.recognitionTask = nil
         audioEngine.inputNode.removeTap(onBus: 0)
-        performSegue(withIdentifier: "exitToTab", sender: nil)
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        //        performSegue(withIdentifier: "exitToTab", sender: nil)
     }
     
     func requestSpeechAuth() {
@@ -74,6 +88,7 @@ class VerbalEntryViewController: UIViewController, AVSpeechSynthesizerDelegate, 
         self.recognitionTask = nil
         
         let audioSession = AVAudioSession.sharedInstance()
+        
         try audioSession.setCategory(.playAndRecord, mode: .measurement, options: .interruptSpokenAudioAndMixWithOthers)
         try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         let inputNode = audioEngine.inputNode
