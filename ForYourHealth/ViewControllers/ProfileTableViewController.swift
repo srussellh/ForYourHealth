@@ -11,9 +11,7 @@ import UIKit
 class ProfileTableViewController: UITableViewController {
     
     let user = UserController.shared.user
-    
     @IBOutlet weak var nameLabel: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.nameLabel.text = user.name
@@ -22,18 +20,13 @@ class ProfileTableViewController: UITableViewController {
         super.viewWillAppear(true)
         tableView.reloadData()
     }
-    
     @IBAction func addButtonPressed(_ sender: Any) {
         alertUser(withMessage: "What would you like to add?")
     }
-    
     // MARK: - Table view data source
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 2
     }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0{
             guard let symptoms = user.symptoms else {return 0}
@@ -57,18 +50,14 @@ class ProfileTableViewController: UITableViewController {
         if indexPath.section == 0{
             guard let symptom = user.symptoms?.object(at: indexPath.row) as? Symptom
                 else {return UITableViewCell()}
-            
             cell.textLabel?.text = symptom.detail
-            
             return cell
         } else {
             guard let alarm = user.alarm?.object(at: indexPath.row) as? Alarm else {return UITableViewCell()}
-            
             cell.textLabel?.text = alarm.name
             return cell
         }
     }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0{
             performSegue(withIdentifier: "toExistingSymptom", sender: nil)
@@ -76,56 +65,37 @@ class ProfileTableViewController: UITableViewController {
             performSegue(withIdentifier: "toExistingAlarm", sender: nil)
         }
     }
-    
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-        if indexPath.section == 0 {
-            guard let symptom = user.symptoms?.object(at: indexPath.row) as? Symptom
-                else {return}
-            SymptomController.shared.deleteSymptom(symptom: symptom)
-        } else {
-            guard let alarm = user.alarm?.object(at: indexPath.row) as? Alarm else {return}
-            UserAlarmController.shared.deleteAlarm(alarm: alarm)
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if indexPath.section == 0 {
+                guard let symptom = user.symptoms?.object(at: indexPath.row) as? Symptom
+                    else {return}
+                SymptomController.shared.deleteSymptom(symptom: symptom)
+            } else {
+                guard let alarm = user.alarm?.object(at: indexPath.row) as? Alarm else {return}
+                UserAlarmController.shared.deleteAlarm(alarm: alarm)
+            }
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     }
-     }
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toExistingSymptom" {
             guard let indexPath = tableView.indexPathForSelectedRow,
-            let symptom = user.symptoms?.object(at: indexPath.row) as? Symptom,
+                let symptom = user.symptoms?.object(at: indexPath.row) as? Symptom,
                 let destinationVC = segue.destination as? CreateSymptomViewController else {return}
             destinationVC.symptom = symptom
         } else if segue.identifier == "toExistingAlarm"{
             guard let indexPath = tableView.indexPathForSelectedRow,
-            let alarm = user.alarm?.object(at: indexPath.row) as? Alarm,
+                let alarm = user.alarm?.object(at: indexPath.row) as? Alarm,
                 let desinationVC = segue.destination as? CreateAlarmTableViewController else {return}
             desinationVC.alarm = alarm
         }
-     }
+    }
 }
 
 extension ProfileTableViewController {
     func alertUser(withMessage message: String){
         let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let createAlarm = UIAlertAction(title: "Add an Alert", style: .default) { (_) in
             self.performSegue(withIdentifier: "toCreateAlert", sender: nil)
@@ -133,7 +103,6 @@ extension ProfileTableViewController {
         let createSymptom = UIAlertAction(title: "Add a Symptom", style: .default) { (_) in
             self.performSegue(withIdentifier: "toCreateSymptom", sender: nil)
         }
-        
         alertController.addAction(cancelAction)
         alertController.addAction(createAlarm)
         alertController.addAction(createSymptom)

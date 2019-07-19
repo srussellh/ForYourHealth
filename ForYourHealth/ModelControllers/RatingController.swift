@@ -20,4 +20,10 @@ class RatingController{
         rating.number = number
         UserController.shared.saveToPersistentStore()
     }
+    
+    func deleteRating(rating: Rating){
+        let moc = CoreDataStack.context
+        moc.delete(rating)
+        UserController.shared.saveToPersistentStore()
+    }
 }

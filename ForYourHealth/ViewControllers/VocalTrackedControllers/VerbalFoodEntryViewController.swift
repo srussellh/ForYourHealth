@@ -26,9 +26,22 @@ class VerbalFoodEntryViewController: UIViewController, AVSpeechSynthesizerDelega
     
     @IBOutlet weak var foodEntryTextField: UITextView!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = lightAccent
+        titleLabel.font = titleFont
+        titleLabel.text = "What did you eat today?"
+        titleLabel.textColor = darkShade
+        foodEntryTextField.text = ""
+        foodEntryTextField.font = titleFont
+        foodEntryTextField.textColor = darkShade
+        foodEntryTextField.backgroundColor = lightShade
+        foodEntryTextField.layer.cornerRadius = textFieldRounder
+        cancelButton.setTitle("Exit", for: .normal)
+        cancelButton.titleLabel?.font = cancelFont
+        cancelButton.setTitleColor(darkAccent, for: .normal)
         requestSpeechAuth()
     }
     
@@ -39,7 +52,7 @@ class VerbalFoodEntryViewController: UIViewController, AVSpeechSynthesizerDelega
         self.recognitionTask?.finish()
         self.recognitionTask = nil
         audioEngine.inputNode.removeTap(onBus: 0)
-        performSegue(withIdentifier: "exitToTab", sender: nil)
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     func requestSpeechAuth() {
@@ -114,6 +127,6 @@ class VerbalFoodEntryViewController: UIViewController, AVSpeechSynthesizerDelega
     func speechRecognitionTask(_ task: SFSpeechRecognitionTask, didFinishSuccessfully successfully: Bool) {
         guard let response = response else {return}
         FoodEntryController.shared.createFoodEntry(detail: response, user: user)
-        performSegue(withIdentifier: "toTabBar", sender: nil)
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
 }

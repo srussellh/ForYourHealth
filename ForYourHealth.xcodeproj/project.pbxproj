@@ -16,7 +16,6 @@
 		025D302022D54F2F00A9D94C /* User+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D301F22D54F2F00A9D94C /* User+Convenience.swift */; };
 		025D302222D54F5200A9D94C /* Symptom+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D302122D54F5200A9D94C /* Symptom+Convenience.swift */; };
 		025D302422D54F6000A9D94C /* Rating+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D302322D54F6000A9D94C /* Rating+Convenience.swift */; };
-		025D302622D54F6E00A9D94C /* Medication+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D302522D54F6E00A9D94C /* Medication+Convenience.swift */; };
 		025D302822D54F7B00A9D94C /* FoodEntry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D302722D54F7B00A9D94C /* FoodEntry+Convenience.swift */; };
 		025D302A22D54F8B00A9D94C /* Alarm+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D302922D54F8B00A9D94C /* Alarm+Convenience.swift */; };
 		025D302C22D54FF200A9D94C /* Entry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D302B22D54FF200A9D94C /* Entry+Convenience.swift */; };
@@ -29,10 +28,8 @@
 		025D303E22D6A81B00A9D94C /* VerbalSymptomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D303D22D6A81B00A9D94C /* VerbalSymptomViewController.swift */; };
 		025D304022DCD40600A9D94C /* FoodEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D303F22DCD40600A9D94C /* FoodEntryController.swift */; };
 		025D304422DCD82700A9D94C /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D304322DCD82700A9D94C /* EntryController.swift */; };
-		025D304622DCD97E00A9D94C /* MedicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D304522DCD97E00A9D94C /* MedicationController.swift */; };
 		025D304822DCDE4100A9D94C /* DateExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D304722DCDE4100A9D94C /* DateExtention.swift */; };
 		025D304D22DCE1FA00A9D94C /* UserAlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D304C22DCE1FA00A9D94C /* UserAlarmController.swift */; };
-		025D305122DCEADB00A9D94C /* MedsAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D305022DCEADB00A9D94C /* MedsAlertController.swift */; };
 		025D305322DCF04000A9D94C /* CreateAlarmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D305222DCF04000A9D94C /* CreateAlarmTableViewController.swift */; };
 		025D305722DD3BE300A9D94C /* CalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D305622DD3BE300A9D94C /* CalenderViewController.swift */; };
 		025D305922DD3E6E00A9D94C /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025D305822DD3E6E00A9D94C /* DateCollectionViewCell.swift */; };
@@ -41,6 +38,9 @@
 		028373A922E1014F00F058A0 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028373A822E1014F00F058A0 /* SelectionViewController.swift */; };
 		028373AB22E103DC00F058A0 /* UIViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028373AA22E103DC00F058A0 /* UIViewExtention.swift */; };
 		028373B022E1093000F058A0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028373AF22E1093000F058A0 /* Constants.swift */; };
+		028373B422E2173900F058A0 /* EditRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028373B322E2173900F058A0 /* EditRatingViewController.swift */; };
+		028373B722E21D9200F058A0 /* EditEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028373B622E21D9200F058A0 /* EditEntryViewController.swift */; };
+		028373B922E221D700F058A0 /* EditFoodEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028373B822E221D700F058A0 /* EditFoodEntryViewController.swift */; };
 		02B8A36B22DE876E005911BB /* DateDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B8A36A22DE876E005911BB /* DateDetailViewController.swift */; };
 		02B8A36D22DF7F46005911BB /* ManualSymptomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B8A36C22DF7F46005911BB /* ManualSymptomViewController.swift */; };
 		02B8A36F22DF8772005911BB /* ManualEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B8A36E22DF8772005911BB /* ManualEntryViewController.swift */; };
@@ -50,8 +50,6 @@
 		02B8A37722DFEA70005911BB /* VerbalFoodEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B8A37622DFEA70005911BB /* VerbalFoodEntryViewController.swift */; };
 		02E3640C22DE3FF70061DD23 /* Alarm+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E3640A22DE3FF70061DD23 /* Alarm+CoreDataClass.swift */; };
 		02E3640D22DE3FF70061DD23 /* Alarm+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E3640B22DE3FF70061DD23 /* Alarm+CoreDataProperties.swift */; };
-		02E3640F22DE56080061DD23 /* MedsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E3640E22DE56080061DD23 /* MedsTableViewController.swift */; };
-		02E3641122DE5D6D0061DD23 /* CreateMedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E3641022DE5D6D0061DD23 /* CreateMedTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,7 +64,6 @@
 		025D301F22D54F2F00A9D94C /* User+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Convenience.swift"; sourceTree = "<group>"; };
 		025D302122D54F5200A9D94C /* Symptom+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Symptom+Convenience.swift"; sourceTree = "<group>"; };
 		025D302322D54F6000A9D94C /* Rating+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rating+Convenience.swift"; sourceTree = "<group>"; };
-		025D302522D54F6E00A9D94C /* Medication+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medication+Convenience.swift"; sourceTree = "<group>"; };
 		025D302722D54F7B00A9D94C /* FoodEntry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FoodEntry+Convenience.swift"; sourceTree = "<group>"; };
 		025D302922D54F8B00A9D94C /* Alarm+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alarm+Convenience.swift"; sourceTree = "<group>"; };
 		025D302B22D54FF200A9D94C /* Entry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Convenience.swift"; sourceTree = "<group>"; };
@@ -79,10 +76,8 @@
 		025D303D22D6A81B00A9D94C /* VerbalSymptomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalSymptomViewController.swift; sourceTree = "<group>"; };
 		025D303F22DCD40600A9D94C /* FoodEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEntryController.swift; sourceTree = "<group>"; };
 		025D304322DCD82700A9D94C /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
-		025D304522DCD97E00A9D94C /* MedicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationController.swift; sourceTree = "<group>"; };
 		025D304722DCDE4100A9D94C /* DateExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtention.swift; sourceTree = "<group>"; };
 		025D304C22DCE1FA00A9D94C /* UserAlarmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAlarmController.swift; sourceTree = "<group>"; };
-		025D305022DCEADB00A9D94C /* MedsAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedsAlertController.swift; sourceTree = "<group>"; };
 		025D305222DCF04000A9D94C /* CreateAlarmTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlarmTableViewController.swift; sourceTree = "<group>"; };
 		025D305622DD3BE300A9D94C /* CalenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderViewController.swift; sourceTree = "<group>"; };
 		025D305822DD3E6E00A9D94C /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -91,6 +86,9 @@
 		028373A822E1014F00F058A0 /* SelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
 		028373AA22E103DC00F058A0 /* UIViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtention.swift; sourceTree = "<group>"; };
 		028373AF22E1093000F058A0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		028373B322E2173900F058A0 /* EditRatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRatingViewController.swift; sourceTree = "<group>"; };
+		028373B622E21D9200F058A0 /* EditEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEntryViewController.swift; sourceTree = "<group>"; };
+		028373B822E221D700F058A0 /* EditFoodEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFoodEntryViewController.swift; sourceTree = "<group>"; };
 		02B8A36A22DE876E005911BB /* DateDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDetailViewController.swift; sourceTree = "<group>"; };
 		02B8A36C22DF7F46005911BB /* ManualSymptomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualSymptomViewController.swift; sourceTree = "<group>"; };
 		02B8A36E22DF8772005911BB /* ManualEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualEntryViewController.swift; sourceTree = "<group>"; };
@@ -100,8 +98,6 @@
 		02B8A37622DFEA70005911BB /* VerbalFoodEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbalFoodEntryViewController.swift; sourceTree = "<group>"; };
 		02E3640A22DE3FF70061DD23 /* Alarm+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alarm+CoreDataClass.swift"; sourceTree = "<group>"; };
 		02E3640B22DE3FF70061DD23 /* Alarm+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alarm+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		02E3640E22DE56080061DD23 /* MedsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedsTableViewController.swift; sourceTree = "<group>"; };
-		02E3641022DE5D6D0061DD23 /* CreateMedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMedTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,7 +158,6 @@
 				025D302B22D54FF200A9D94C /* Entry+Convenience.swift */,
 				025D302922D54F8B00A9D94C /* Alarm+Convenience.swift */,
 				025D302722D54F7B00A9D94C /* FoodEntry+Convenience.swift */,
-				025D302522D54F6E00A9D94C /* Medication+Convenience.swift */,
 				025D302322D54F6000A9D94C /* Rating+Convenience.swift */,
 				025D302122D54F5200A9D94C /* Symptom+Convenience.swift */,
 				025D301F22D54F2F00A9D94C /* User+Convenience.swift */,
@@ -182,8 +177,6 @@
 				025D303F22DCD40600A9D94C /* FoodEntryController.swift */,
 				025D304322DCD82700A9D94C /* EntryController.swift */,
 				025D304C22DCE1FA00A9D94C /* UserAlarmController.swift */,
-				025D305022DCEADB00A9D94C /* MedsAlertController.swift */,
-				025D304522DCD97E00A9D94C /* MedicationController.swift */,
 			);
 			path = ModelControllers;
 			sourceTree = "<group>";
@@ -193,18 +186,15 @@
 			children = (
 				025D303422D689D400A9D94C /* CreateUserViewController.swift */,
 				028373A522E0C86B00F058A0 /* theTabViewController.swift */,
+				028373A822E1014F00F058A0 /* SelectionViewController.swift */,
 				025D303622D6952000A9D94C /* ProfileTableViewController.swift */,
 				025D305622DD3BE300A9D94C /* CalenderViewController.swift */,
-				028373A822E1014F00F058A0 /* SelectionViewController.swift */,
+				02B8A36A22DE876E005911BB /* DateDetailViewController.swift */,
 				025D303A22D6A42B00A9D94C /* CreateSymptomViewController.swift */,
 				025D305222DCF04000A9D94C /* CreateAlarmTableViewController.swift */,
-				028373A722E100D100F058A0 /* VocalViewControllers */,
-				02B8A36C22DF7F46005911BB /* ManualSymptomViewController.swift */,
-				02B8A36E22DF8772005911BB /* ManualEntryViewController.swift */,
-				02B8A37022DF8A7B005911BB /* ManualFoodEntryViewController.swift */,
-				02B8A36A22DE876E005911BB /* DateDetailViewController.swift */,
-				02E3640E22DE56080061DD23 /* MedsTableViewController.swift */,
-				02E3641022DE5D6D0061DD23 /* CreateMedTableViewController.swift */,
+				028373A722E100D100F058A0 /* VocalTrackedControllers */,
+				028373B522E21D3B00F058A0 /* ManualTrackedControllers */,
+				028373BA22E2229600F058A0 /* EditTrackedControllers */,
 				025D305A22DD3E7500A9D94C /* CustomCells */,
 			);
 			path = ViewControllers;
@@ -230,14 +220,34 @@
 			path = CustomCells;
 			sourceTree = "<group>";
 		};
-		028373A722E100D100F058A0 /* VocalViewControllers */ = {
+		028373A722E100D100F058A0 /* VocalTrackedControllers */ = {
 			isa = PBXGroup;
 			children = (
 				025D303D22D6A81B00A9D94C /* VerbalSymptomViewController.swift */,
 				02B8A37422DFE6B8005911BB /* VerbalEntryViewController.swift */,
 				02B8A37622DFEA70005911BB /* VerbalFoodEntryViewController.swift */,
 			);
-			path = VocalViewControllers;
+			path = VocalTrackedControllers;
+			sourceTree = "<group>";
+		};
+		028373B522E21D3B00F058A0 /* ManualTrackedControllers */ = {
+			isa = PBXGroup;
+			children = (
+				02B8A36C22DF7F46005911BB /* ManualSymptomViewController.swift */,
+				02B8A36E22DF8772005911BB /* ManualEntryViewController.swift */,
+				02B8A37022DF8A7B005911BB /* ManualFoodEntryViewController.swift */,
+			);
+			path = ManualTrackedControllers;
+			sourceTree = "<group>";
+		};
+		028373BA22E2229600F058A0 /* EditTrackedControllers */ = {
+			isa = PBXGroup;
+			children = (
+				028373B322E2173900F058A0 /* EditRatingViewController.swift */,
+				028373B622E21D9200F058A0 /* EditEntryViewController.swift */,
+				028373B822E221D700F058A0 /* EditFoodEntryViewController.swift */,
+			);
+			path = EditTrackedControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				025D302822D54F7B00A9D94C /* FoodEntry+Convenience.swift in Sources */,
+				028373B922E221D700F058A0 /* EditFoodEntryViewController.swift in Sources */,
 				025D305C22DD3F6600A9D94C /* CalenderVariables.swift in Sources */,
 				025D302422D54F6000A9D94C /* Rating+Convenience.swift in Sources */,
 				025D305722DD3BE300A9D94C /* CalenderViewController.swift in Sources */,
@@ -322,6 +333,7 @@
 				025D302E22D6816C00A9D94C /* UserController.swift in Sources */,
 				02E3640C22DE3FF70061DD23 /* Alarm+CoreDataClass.swift in Sources */,
 				025D301C22D5433D00A9D94C /* Model.xcdatamodeld in Sources */,
+				028373B422E2173900F058A0 /* EditRatingViewController.swift in Sources */,
 				02B8A36B22DE876E005911BB /* DateDetailViewController.swift in Sources */,
 				025D303722D6952000A9D94C /* ProfileTableViewController.swift in Sources */,
 				02E3640D22DE3FF70061DD23 /* Alarm+CoreDataProperties.swift in Sources */,
@@ -338,20 +350,16 @@
 				025D305922DD3E6E00A9D94C /* DateCollectionViewCell.swift in Sources */,
 				025D302A22D54F8B00A9D94C /* Alarm+Convenience.swift in Sources */,
 				025D305322DCF04000A9D94C /* CreateAlarmTableViewController.swift in Sources */,
+				028373B722E21D9200F058A0 /* EditEntryViewController.swift in Sources */,
 				02410DDA22AB064F00E12608 /* AppDelegate.swift in Sources */,
 				025D301E22D54C2300A9D94C /* CoreDataStack.swift in Sources */,
 				02B8A37722DFEA70005911BB /* VerbalFoodEntryViewController.swift in Sources */,
 				02B8A37122DF8A7B005911BB /* ManualFoodEntryViewController.swift in Sources */,
 				028373B022E1093000F058A0 /* Constants.swift in Sources */,
-				025D302622D54F6E00A9D94C /* Medication+Convenience.swift in Sources */,
-				025D305122DCEADB00A9D94C /* MedsAlertController.swift in Sources */,
 				025D304822DCDE4100A9D94C /* DateExtention.swift in Sources */,
-				02E3641122DE5D6D0061DD23 /* CreateMedTableViewController.swift in Sources */,
 				02B8A36F22DF8772005911BB /* ManualEntryViewController.swift in Sources */,
 				028373AB22E103DC00F058A0 /* UIViewExtention.swift in Sources */,
 				025D303E22D6A81B00A9D94C /* VerbalSymptomViewController.swift in Sources */,
-				025D304622DCD97E00A9D94C /* MedicationController.swift in Sources */,
-				02E3640F22DE56080061DD23 /* MedsTableViewController.swift in Sources */,
 				025D303022D6836E00A9D94C /* SymptomController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

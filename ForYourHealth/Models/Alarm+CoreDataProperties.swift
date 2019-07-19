@@ -23,7 +23,6 @@ extension Alarm {
     @NSManaged public var minute: Int64
     @NSManaged public var name: String?
     @NSManaged public var uuid: String?
-    @NSManaged public var medication: MedIcation?
     @NSManaged public var user: User?
     @NSManaged public var weekdays: [Int64]
 

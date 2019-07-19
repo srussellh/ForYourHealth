@@ -15,6 +15,8 @@ class ManualSymptomViewController: UIViewController {
     var index = 0
     
     @IBOutlet weak var symptomLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var skipButton: UIButton!
     
     @IBOutlet weak var zeroButton: UIButton!
     @IBOutlet weak var oneButton: UIButton!
@@ -29,10 +31,23 @@ class ManualSymptomViewController: UIViewController {
     @IBOutlet weak var tenButton: UIButton!
     
     override func viewDidLoad() {
+        if symptomIndex == 0 {
+            performSegue(withIdentifier: "toEntry", sender: nil)
+        } else {
         super.viewDidLoad()
         guard let symptom = self.user.symptoms?.object(at: self.index) as? Symptom else {return}
-        
+            view.backgroundColor = lightShade
+        updateView()
         symptomLabel.text = symptom.detail
+            symptomLabel.textColor = darkShade
+            symptomLabel.font = symptomFont
+            skipButton.setTitleColor(darkAccent, for: .normal)
+            skipButton.setTitle("Skip", for: .normal)
+            skipButton.titleLabel?.font = buttonFont
+            titleLabel.text = "On a scale from 1 to 10..."
+            titleLabel.font = titleFont
+            titleLabel.textColor = darkShade
+        }
     }
     
     @IBAction func zeroButtonPressed(_ sender: Any) {
@@ -94,8 +109,56 @@ class ManualSymptomViewController: UIViewController {
     func cycleOrSegue(){
         guard let symptomIndex = symptomIndex else {return}
         index += 1
-        guard  index < (symptomIndex) else { performSegue(withIdentifier: "toManFoodEntry", sender: nil); return }
+        guard  index < (symptomIndex) else { performSegue(withIdentifier: "toEntry", sender: nil); return }
         guard let symptom = self.user.symptoms?.object(at: self.index) as? Symptom else {return}
         symptomLabel.text = symptom.detail
+        updateView()
+    }
+    
+    func updateView(){
+        zeroButton.setTitleColor(darkAccent, for: .normal)
+        oneButton.setTitleColor(darkAccent, for: .normal)
+        twoButton.setTitleColor(darkAccent, for: .normal)
+        threeButton.setTitleColor(darkAccent, for: .normal)
+        fourButton.setTitleColor(darkAccent, for: .normal)
+        fiveButton.setTitleColor(darkAccent, for: .normal)
+        sixButton.setTitleColor(darkAccent, for: .normal)
+        sevenButton.setTitleColor(darkAccent, for: .normal)
+        eightButton.setTitleColor(darkAccent, for: .normal)
+        nineButton.setTitleColor(darkAccent, for: .normal)
+        tenButton.setTitleColor(darkAccent, for: .normal)
+        zeroButton.backgroundColor = lightAccent
+        oneButton.backgroundColor = lightAccent
+        twoButton.backgroundColor = lightAccent
+        threeButton.backgroundColor = lightAccent
+        fourButton.backgroundColor = lightAccent
+        fiveButton.backgroundColor = lightAccent
+        sixButton.backgroundColor = lightAccent
+        sevenButton.backgroundColor = lightAccent
+        eightButton.backgroundColor = lightAccent
+        nineButton.backgroundColor = lightAccent
+        tenButton.backgroundColor = lightAccent
+        zeroButton.layer.cornerRadius = zeroButton.frame.height/roundDivider
+        oneButton.layer.cornerRadius = oneButton.frame.height/roundDivider
+        twoButton.layer.cornerRadius = twoButton.frame.height/roundDivider
+        threeButton.layer.cornerRadius = threeButton.frame.height/roundDivider
+        fourButton.layer.cornerRadius = fourButton.frame.height/roundDivider
+        fiveButton.layer.cornerRadius = fiveButton.frame.height/roundDivider
+        sixButton.layer.cornerRadius = sixButton.frame.height/roundDivider
+        sevenButton.layer.cornerRadius = sevenButton.frame.height/roundDivider
+        eightButton.layer.cornerRadius = eightButton.frame.height/roundDivider
+        nineButton.layer.cornerRadius = nineButton.frame.height/roundDivider
+        tenButton.layer.cornerRadius = tenButton.frame.height/roundDivider
+        zeroButton.titleLabel?.font = numberFont
+        oneButton.titleLabel?.font = numberFont
+        twoButton.titleLabel?.font = numberFont
+        threeButton.titleLabel?.font = numberFont
+        fourButton.titleLabel?.font = numberFont
+        fiveButton.titleLabel?.font = numberFont
+        sixButton.titleLabel?.font = numberFont
+        sevenButton.titleLabel?.font = numberFont
+        eightButton.titleLabel?.font = numberFont
+        nineButton.titleLabel?.font = numberFont
+        tenButton.titleLabel?.font = numberFont
     }
 }

@@ -8,8 +8,16 @@
 
 import UIKit
 
+//MARK: Fonts
 let titleFont = UIFont(name: "Noteworthy", size: 20)
 let buttonFont = UIFont(name: "NoteWorthy", size: 20)
+let cancelFont = UIFont(name: "NoteWorthy", size: 16)
+let symptomFont = UIFont(name: "Noteworthy", size: 18)
+let numberFont = UIFont(name: "NoteWorthy", size: 16)
+
+//MARK: rounding
+let roundDivider:CGFloat = 5
+let textFieldRounder: CGFloat = 20
 
 //MARK: Colors
 let lightShade: UIColor = UIColor(hue: 0.1194, saturation: 0.2, brightness: 0.97, alpha: 1.0) /* #f8eac4 */
