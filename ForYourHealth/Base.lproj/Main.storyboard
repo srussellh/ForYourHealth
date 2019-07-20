@@ -18,30 +18,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kas-Za-s14">
-                                <rect key="frame" x="148" y="329" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="inO-d0-CkF">
-                                <rect key="frame" x="155" y="388" width="82" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Create User"/>
-                                <connections>
-                                    <action selector="createUserButtonTapped:" destination="yVg-iY-4Gw" eventType="touchUpInside" id="kbu-aX-tf6"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eic-KW-h0E">
-                                <rect key="frame" x="175" y="189" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="txB-Kc-ks5">
+                                <rect key="frame" x="72.5" y="328.5" width="269" height="89"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kas-Za-s14">
+                                        <rect key="frame" x="0.0" y="0.0" width="269" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="inO-d0-CkF">
+                                        <rect key="frame" x="47" y="59" width="175" height="30"/>
+                                        <state key="normal" title="Create User"/>
+                                        <connections>
+                                            <action selector="createUserButtonTapped:" destination="yVg-iY-4Gw" eventType="touchUpInside" id="kbu-aX-tf6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="kas-Za-s14" firstAttribute="width" secondItem="txB-Kc-ks5" secondAttribute="width" id="AQ8-sr-MDz"/>
+                                    <constraint firstItem="inO-d0-CkF" firstAttribute="width" secondItem="txB-Kc-ks5" secondAttribute="width" multiplier="0.65" id="r39-6a-Ewc"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eic-KW-h0E">
+                                <rect key="frame" x="41.5" y="124" width="331" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Eic-KW-h0E" firstAttribute="width" secondItem="82K-Yf-NXE" secondAttribute="width" multiplier="0.8" id="CWg-w1-yWx"/>
+                            <constraint firstItem="txB-Kc-ks5" firstAttribute="centerY" secondItem="82K-Yf-NXE" secondAttribute="centerY" constant="-75" id="Etb-9p-xrP"/>
+                            <constraint firstItem="txB-Kc-ks5" firstAttribute="centerX" secondItem="82K-Yf-NXE" secondAttribute="centerX" id="Euv-Ze-VAt"/>
+                            <constraint firstItem="txB-Kc-ks5" firstAttribute="width" secondItem="82K-Yf-NXE" secondAttribute="width" multiplier="0.65" id="PxV-rs-9l4"/>
+                            <constraint firstItem="Eic-KW-h0E" firstAttribute="top" secondItem="SYH-mk-F61" secondAttribute="top" constant="80" id="SKN-AT-wjd"/>
+                            <constraint firstItem="Eic-KW-h0E" firstAttribute="centerX" secondItem="82K-Yf-NXE" secondAttribute="centerX" id="tKR-OH-4yg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="SYH-mk-F61"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="RZa-K3-0uW"/>
@@ -54,7 +68,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QyM-Gp-nb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1420" y="451"/>
+            <point key="canvasLocation" x="-1420.289855072464" y="450.66964285714283"/>
         </scene>
         <!--Calender View Controller-->
         <scene sceneID="cmh-In-bed">
@@ -611,7 +625,6 @@
                                         <state key="normal" title="Verbal"/>
                                         <connections>
                                             <action selector="verbalButtonPressed:" destination="l2i-Ht-riS" eventType="touchUpInside" id="edm-ml-sVh"/>
-                                            <segue destination="6ac-iH-L3d" kind="show" id="I4m-F3-vIM"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBF-CB-P6x">
@@ -619,7 +632,6 @@
                                         <state key="normal" title="Manual"/>
                                         <connections>
                                             <action selector="manualButtonPressed:" destination="l2i-Ht-riS" eventType="touchUpInside" id="Vcn-y1-aSn"/>
-                                            <segue destination="xs7-pE-Hb5" kind="show" id="LT4-6e-dNj"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -647,6 +659,10 @@
                         <outlet property="VerbalButton" destination="JqP-zC-nWy" id="Y39-Zb-kXQ"/>
                         <outlet property="manualButton" destination="JBF-CB-P6x" id="xQP-h5-4nC"/>
                         <outlet property="titleLabel" destination="CwB-56-SDH" id="Lv1-he-daT"/>
+                        <segue destination="xs7-pE-Hb5" kind="show" identifier="toSymptom" id="X5c-Pi-bId"/>
+                        <segue destination="VuE-E4-Ueg" kind="show" identifier="skipToEntry" id="Ng1-s7-4JR"/>
+                        <segue destination="6ac-iH-L3d" kind="show" identifier="toVerbalSymptom" id="Zqx-Wt-fWV"/>
+                        <segue destination="UYh-SF-crY" kind="show" identifier="skipToVerbEntry" id="lwm-NS-aeh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNr-js-xh8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1498,8 +1514,9 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="lET-MU-XDu"/>
-        <segue reference="TKC-pZ-7Vj"/>
+        <segue reference="Ng1-s7-4JR"/>
         <segue reference="5Vh-oK-Pyl"/>
         <segue reference="idj-S7-K3F"/>
+        <segue reference="lwm-NS-aeh"/>
     </inferredMetricsTieBreakers>
 </document>

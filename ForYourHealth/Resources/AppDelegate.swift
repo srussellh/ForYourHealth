@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             let feedViewController = storyboard.instantiateViewController(withIdentifier: "tabController")
             UIApplication.shared.windows.first?.rootViewController = feedViewController
         }
+        
         return true
     }
     

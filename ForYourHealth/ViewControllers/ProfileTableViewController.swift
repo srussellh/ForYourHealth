@@ -15,6 +15,7 @@ class ProfileTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.nameLabel.text = user.name
+        self.tabBarController?.tabBar.barTintColor = lightAccent
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
