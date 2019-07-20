@@ -11,6 +11,7 @@ import UIKit
 class ManualFoodEntryViewController: UIViewController {
     
     let user = UserController.shared.user
+    var symptomIndex:Int?
     
     @IBOutlet weak var foodEntryTextField: UITextView!
     @IBOutlet weak var doneButton: UIButton!
@@ -42,8 +43,17 @@ class ManualFoodEntryViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        symptomIndex = UserController.shared.user.symptoms?.count
+    }
+    
     @IBAction func skipButtonPressed(_ sender: Any) {
-        self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        if symptomIndex == 0 {
+            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        } else {
+            self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        }
     }
     
     @IBAction func doneButtonPressed(_ sender: Any) {

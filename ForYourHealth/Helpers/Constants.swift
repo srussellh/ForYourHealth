@@ -14,7 +14,7 @@ let buttonFont = UIFont(name: "NoteWorthy", size: 20)
 let cancelFont = UIFont(name: "NoteWorthy", size: 16)
 let symptomFont = UIFont(name: "Noteworthy", size: 18)
 let numberFont = UIFont(name: "NoteWorthy", size: 16)
-
+let dayFont = UIFont(name: "NoteWorthy", size: 16)
 //MARK: rounding
 let roundDivider:CGFloat = 5
 let textFieldRounder: CGFloat = 20

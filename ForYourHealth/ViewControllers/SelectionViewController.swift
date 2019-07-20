@@ -10,7 +10,7 @@ import UIKit
 
 class SelectionViewController: UIViewController {
     
-    
+    var symptomIndex:Int?
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var VerbalButton: UIButton!
     @IBOutlet weak var manualButton: UIButton!
@@ -34,12 +34,27 @@ class SelectionViewController: UIViewController {
         manualButton.layer.cornerRadius = manualButton.frame.height/4
         manualButton.setTitleColor(darkShade, for: .normal)
         manualButton.titleLabel?.font = buttonFont
-        // Do any additional setup after loading the view.
+        self.tabBarController?.tabBar.barTintColor = lightAccent
+        
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        symptomIndex = UserController.shared.user.symptoms?.count
+    }
     @IBAction func verbalButtonPressed(_ sender: Any) {
+        if symptomIndex == 0 || symptomIndex == nil {
+            performSegue(withIdentifier: "skipToVerbEntry", sender: nil)
+        } else {
+            performSegue(withIdentifier: "toVerbalSymptom", sender: nil)
+        }
+        
     }
     @IBAction func manualButtonPressed(_ sender: Any) {
+        if symptomIndex == 0 || symptomIndex == nil {
+            performSegue(withIdentifier: "skipToEntry", sender: nil)
+        } else {
+            performSegue(withIdentifier: "toSymptom", sender: nil)
+        }
     }
     
     /*

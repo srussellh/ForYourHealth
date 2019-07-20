@@ -13,6 +13,7 @@ import AVKit
 class VerbalFoodEntryViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeechRecognitionTaskDelegate   {
     
     let user = UserController.shared.user
+    var symptomIndex:Int?
     
     let speechRecognizer = SFSpeechRecognizer()
     var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
@@ -44,7 +45,10 @@ class VerbalFoodEntryViewController: UIViewController, AVSpeechSynthesizerDelega
         cancelButton.setTitleColor(darkAccent, for: .normal)
         requestSpeechAuth()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        symptomIndex = UserController.shared.user.symptoms?.count
+    }
     @IBAction func cancelButtonPressed(_ sender: Any) {
         self.recognitionRequest?.endAudio()
         self.audioEngine.stop()
@@ -52,7 +56,12 @@ class VerbalFoodEntryViewController: UIViewController, AVSpeechSynthesizerDelega
         self.recognitionTask?.finish()
         self.recognitionTask = nil
         audioEngine.inputNode.removeTap(onBus: 0)
-        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        
+        if symptomIndex == 0 {
+            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        } else {
+            self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        }
     }
     
     func requestSpeechAuth() {

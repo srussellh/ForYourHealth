@@ -31,9 +31,7 @@ class ManualSymptomViewController: UIViewController {
     @IBOutlet weak var tenButton: UIButton!
     
     override func viewDidLoad() {
-        if symptomIndex == 0 {
-            performSegue(withIdentifier: "toEntry", sender: nil)
-        } else {
+
         super.viewDidLoad()
         guard let symptom = self.user.symptoms?.object(at: self.index) as? Symptom else {return}
             view.backgroundColor = lightShade
@@ -47,7 +45,7 @@ class ManualSymptomViewController: UIViewController {
             titleLabel.text = "On a scale from 1 to 10..."
             titleLabel.font = titleFont
             titleLabel.textColor = darkShade
-        }
+        
     }
     
     @IBAction func zeroButtonPressed(_ sender: Any) {

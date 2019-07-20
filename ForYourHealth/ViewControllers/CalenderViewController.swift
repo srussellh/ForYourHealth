@@ -38,6 +38,28 @@ class CalenderViewController: UIViewController, UICollectionViewDelegate, UIColl
         print("\(weekday),\(day),\(week)")
         getStartDateDayPosition()
         updateView()
+        view.backgroundColor = lightAccent
+        calender.backgroundColor = lightShade
+        leftArrowButton.setTitleColor(darkAccent, for: .normal)
+        rightArrowButton.setTitleColor(darkAccent, for: .normal)
+        monthLabel.textColor = darkAccent
+        monthLabel.font = titleFont
+        sunLabel.font = dayFont
+        sunLabel.textColor = darkShade
+        monLabel.font = dayFont
+        monLabel.textColor = darkShade
+        tueLabel.font = dayFont
+        tueLabel.textColor = darkShade
+        wedLabel.font = dayFont
+        wedLabel.textColor = darkShade
+        thurLabel.font = dayFont
+        thurLabel.textColor = darkShade
+        friLabel.font = dayFont
+        friLabel.textColor = darkShade
+        satLabel.font = dayFont
+        satLabel.textColor = darkShade
+        
+        self.tabBarController?.tabBar.barTintColor = lightAccent
     }
     @IBAction func leftArrowButtonPressed(_ sender: Any) {
         if monthIndex == 0 {

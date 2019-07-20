@@ -16,7 +16,19 @@ class CreateUserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = lightAccent
         titleLabel.text = "Looks like you are new to the app. Lets start by getting your name."
+        titleLabel.textColor = darkShade
+        titleLabel.font = titleFont
+        nameTextField.backgroundColor = lightShade
+        nameTextField.font = titleFont
+        nameTextField.textColor = darkShade
+        createUserButton.layer.borderWidth = 1.0
+        createUserButton.layer.borderColor = darkShade.cgColor
+        createUserButton.layer.backgroundColor = mainBrandColor.cgColor
+        createUserButton.layer.cornerRadius = createUserButton.frame.height/4
+        createUserButton.setTitleColor(darkShade, for: .normal)
+        createUserButton.titleLabel?.font = buttonFont
     }
     @IBAction func createUserButtonTapped(_ sender: Any) {
         guard let name = nameTextField.text else {return}
