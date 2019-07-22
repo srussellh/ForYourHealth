@@ -44,6 +44,7 @@ class VerbalFoodEntryViewController: UIViewController, AVSpeechSynthesizerDelega
         cancelButton.titleLabel?.font = cancelFont
         cancelButton.setTitleColor(darkAccent, for: .normal)
         requestSpeechAuth()
+        cancelButton.isHidden = true
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -72,7 +73,8 @@ class VerbalFoodEntryViewController: UIViewController, AVSpeechSynthesizerDelega
                     self.utterence.rate = 0.4
                     self.utterence.volume = 1.0
                     do {
-                        try AVAudioSession().setCategory(.playAndRecord, mode: .default, policy: .default, options: .defaultToSpeaker)
+                        try AVAudioSession().setCategory(.playAndRecord, mode: .default, policy: .default, options: [.allowBluetooth, .defaultToSpeaker])
+                        
                     }catch{
                         print(error)
                     }
@@ -86,6 +88,7 @@ class VerbalFoodEntryViewController: UIViewController, AVSpeechSynthesizerDelega
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         do {
             try startRecording()
+            cancelButton.isHidden = false
         } catch {
             print("Recording Not Available")
         }
@@ -120,7 +123,7 @@ class VerbalFoodEntryViewController: UIViewController, AVSpeechSynthesizerDelega
         print("Text \(transcription.formattedString)")
         self.foodEntryTextField.text = transcription.formattedString
         self.timer?.invalidate()
-        self.timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: false, block: { [weak self] timer in
+        self.timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: { [weak self] timer in
             self?.response = transcription.formattedString
             self?.stopRecording()
         })
@@ -132,10 +135,15 @@ class VerbalFoodEntryViewController: UIViewController, AVSpeechSynthesizerDelega
         self.recognitionTask?.finish()
         self.recognitionTask = nil
         audioEngine.inputNode.removeTap(onBus: 0)
+        cancelButton.isHidden = true
     }
     func speechRecognitionTask(_ task: SFSpeechRecognitionTask, didFinishSuccessfully successfully: Bool) {
         guard let response = response else {return}
         FoodEntryController.shared.createFoodEntry(detail: response, user: user)
-        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        if symptomIndex == 0 {
+            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        } else {
+            self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        }
     }
 }

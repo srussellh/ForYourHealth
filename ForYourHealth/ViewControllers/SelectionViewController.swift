@@ -21,20 +21,23 @@ class SelectionViewController: UIViewController {
         titleLabel.text = "How would you like to fill out your information?"
         titleLabel.textColor = darkShade
         titleLabel.font = titleFont
-        VerbalButton.layer.borderWidth = 1.0
+        VerbalButton.layer.borderWidth = buttonBorder
         VerbalButton.layer.borderColor = darkShade.cgColor
-        VerbalButton.layer.backgroundColor = mainBrandColor.cgColor
-        VerbalButton.layer.cornerRadius = VerbalButton.frame.height/4
+        VerbalButton.layer.backgroundColor = darkAccent.cgColor
+        VerbalButton.layer.cornerRadius = VerbalButton.frame.height/roundDivider
         VerbalButton.setTitleColor(darkShade, for: .normal)
         VerbalButton.titleLabel?.font = buttonFont
         
-        manualButton.layer.borderWidth = 1.0
+        manualButton.layer.borderWidth = buttonBorder
         manualButton.layer.borderColor = darkShade.cgColor
-        manualButton.layer.backgroundColor = mainBrandColor.cgColor
-        manualButton.layer.cornerRadius = manualButton.frame.height/4
+        manualButton.layer.backgroundColor = darkAccent.cgColor
+        manualButton.layer.cornerRadius = manualButton.frame.height/roundDivider
         manualButton.setTitleColor(darkShade, for: .normal)
         manualButton.titleLabel?.font = buttonFont
-        self.tabBarController?.tabBar.barTintColor = lightAccent
+        self.tabBarController?.tabBar.barTintColor = mainBrandColor
+        self.tabBarController?.tabBar.unselectedItemTintColor = lightShade
+        self.tabBarController?.tabBar.tintColor = darkAccent
+        
         
     }
     override func viewWillAppear(_ animated: Bool) {

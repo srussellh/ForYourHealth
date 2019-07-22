@@ -20,15 +20,38 @@ class CreateSymptomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = lightAccent
+        
+        symptomTextField.backgroundColor = lightShade
+        symptomTextField.font = titleFont
+        symptomTextField.textColor = darkShade
+        symptomTextField.layer.cornerRadius = textFieldRounder
+        
+        cancelButton.layer.borderWidth = buttonBorder
+        cancelButton.layer.borderColor = darkShade.cgColor
+        cancelButton.backgroundColor = darkAccent
+        cancelButton.layer.cornerRadius = cancelButton.frame.height/roundDivider
+        cancelButton.setTitleColor(darkShade, for: .normal)
+        cancelButton.titleLabel?.font = buttonFont
+        
+        createButton.layer.borderWidth = buttonBorder
+        createButton.layer.borderColor = darkShade.cgColor
+        createButton.backgroundColor = darkAccent
+        createButton.layer.cornerRadius = cancelButton.frame.height/roundDivider
+        createButton.setTitleColor(darkShade, for: .normal)
+        createButton.titleLabel?.font = buttonFont
+        
         if symptom != nil {
             symptomTextField.text = symptom?.detail
             update = true
-            createButton.setTitle("Update", for: .normal)
+            createButton.setTitle("  Update  ", for: .normal)
         } else {
             update = false
-            createButton.setTitle("Create", for: .normal)
+            createButton.setTitle("  Create  ", for: .normal)
         }
         
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(resignAll))
+        view.addGestureRecognizer(tapRecognizer)
     }
     @IBAction func cancelButtonPressed(_ sender: Any) {
         navigationController?.popViewController(animated: true)
@@ -45,6 +68,9 @@ class CreateSymptomViewController: UIViewController {
             }
             navigationController?.popViewController(animated: true)
         }
+    }
+    @objc func resignAll(){
+        symptomTextField.resignFirstResponder()
     }
 }
 extension CreateSymptomViewController {

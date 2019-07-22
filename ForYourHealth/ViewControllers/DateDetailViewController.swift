@@ -12,7 +12,7 @@ import CoreData
 class DateDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
-
+    
     var monthPassed = Int()
     var year = Int()
     var day = Int()
@@ -29,14 +29,28 @@ class DateDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         let calendar = Calendar(identifier: .gregorian)
         var components = DateComponents()
+        
+        view.backgroundColor = lightShade
+        segmentController.tintColor = darkAccent
+        displayTable.backgroundColor = lightShade
+        displayTable.layer.cornerRadius = textFieldRounder
         components.day = day
         components.year = year
         components.month = monthPassed
         guard let date = calendar.date(from: components) else {return}
-        headerLabel.title = date.monthDay
+        
         fetchEntry(date: date)
         fetchRatings(date: date)
         fetchFoodEntry(date: date)
+        
+        let titleLabel = UILabel()
+        titleLabel.text = date.monthDay
+        titleLabel.font = headerFont
+        titleLabel.textColor = darkShade
+        titleLabel.sizeToFit()
+        navigationItem.titleView = titleLabel
+        let backBarButtton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backBarButtton
         
     }
     override func viewWillAppear(_ animated: Bool) {

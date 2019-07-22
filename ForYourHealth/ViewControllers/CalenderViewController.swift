@@ -8,8 +8,10 @@
 
 import UIKit
 
-class CalenderViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class CalenderViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    var height: CGFloat?
+    var width: CGFloat?
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     let daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31]
     var currentMonth = String()
@@ -20,6 +22,7 @@ class CalenderViewController: UIViewController, UICollectionViewDelegate, UIColl
     var direction = 0
     var positionIndex = 0
 
+    @IBOutlet weak var heightConstrant: NSLayoutConstraint!
     @IBOutlet weak var calender: UICollectionView!
     @IBOutlet weak var leftArrowButton: UIButton!
     @IBOutlet weak var monthLabel: UILabel!
@@ -38,8 +41,8 @@ class CalenderViewController: UIViewController, UICollectionViewDelegate, UIColl
         print("\(weekday),\(day),\(week)")
         getStartDateDayPosition()
         updateView()
-        view.backgroundColor = lightAccent
-        calender.backgroundColor = lightShade
+        view.backgroundColor = lightShade
+        calender.backgroundColor = lightAccent
         leftArrowButton.setTitleColor(darkAccent, for: .normal)
         rightArrowButton.setTitleColor(darkAccent, for: .normal)
         monthLabel.textColor = darkAccent
@@ -58,8 +61,15 @@ class CalenderViewController: UIViewController, UICollectionViewDelegate, UIColl
         friLabel.textColor = darkShade
         satLabel.font = dayFont
         satLabel.textColor = darkShade
-        
-        self.tabBarController?.tabBar.barTintColor = lightAccent
+        width = (view.frame.width * 0.75)
+        calender.layer.cornerRadius = 30
+        height = (width! / 7) * 6
+        heightConstrant.constant = height!
+        self.view.setNeedsLayout()
+        self.navigationController?.navigationBar.barTintColor = mainBrandColor
+        self.tabBarController?.tabBar.barTintColor = mainBrandColor
+        let backBarButtton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backBarButtton
     }
     @IBAction func leftArrowButtonPressed(_ sender: Any) {
         if monthIndex == 0 {
@@ -124,7 +134,9 @@ class CalenderViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
     }
 
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (width! / 7), height: width! / 7)
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch direction{
@@ -195,7 +207,6 @@ class CalenderViewController: UIViewController, UICollectionViewDelegate, UIColl
             default:
                 fatalError()
             }
-            
             destinationVC.monthPassed = month
             destinationVC.year = yearToPass
             destinationVC.day = day

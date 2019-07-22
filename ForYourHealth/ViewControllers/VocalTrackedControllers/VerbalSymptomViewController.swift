@@ -62,6 +62,7 @@ class VerbalSymptomViewController: UIViewController, AVSpeechSynthesizerDelegate
         view.backgroundColor = lightShade
         requestSpeechAuth()
         updateView()
+        cancelButton.isHidden = true
         }
         
     }
@@ -88,17 +89,16 @@ class VerbalSymptomViewController: UIViewController, AVSpeechSynthesizerDelegate
                 DispatchQueue.main.async {
                     guard let symptom = self.user.symptoms?.object(at: self.index) as? Symptom else {return}
                     self.symptomLabel.text = symptom.detail
-                    self.utterence = AVSpeechUtterance(string: self.symptomLabel.text!)
+                    self.utterence = AVSpeechUtterance(string: "\(self.symptomLabel.text!) from 0 to 10")
                     self.utterence.rate = 0.4
                     self.utterence.volume = 1.0
                     do {
-                    try AVAudioSession().setCategory(.playback, mode: .default, policy: .default, options: .allowBluetooth)
+                    try AVAudioSession().setCategory(.playAndRecord, mode: .default, policy: .default, options: [.allowBluetooth, .defaultToSpeaker])
                     }catch{
                         print("🚷🚷🚷🚷🚷🚷🚷\(error)🚷🚷🚷🚷🚷🚷🚷🚷")
                     }
                     self.synth.speak(self.utterence)
                     self.synth.delegate = self
-                    
                 }
             }
         }
@@ -110,6 +110,7 @@ class VerbalSymptomViewController: UIViewController, AVSpeechSynthesizerDelegate
         } catch {
             print("Recording Not Available")
         }
+        cancelButton.isHidden = false
     }
     
     func startRecording() throws {
@@ -141,7 +142,7 @@ class VerbalSymptomViewController: UIViewController, AVSpeechSynthesizerDelegate
         response = transcription.formattedString
         print("Text \(transcription.formattedString)")
         self.timer?.invalidate()
-        self.timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: { [weak self] timer in
+        self.timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { [weak self] timer in
             self?.response = transcription.formattedString
             self?.stopRecording()
         })
@@ -195,7 +196,7 @@ class VerbalSymptomViewController: UIViewController, AVSpeechSynthesizerDelegate
         } else {
             return
         }
-        
+        cancelButton.isHidden = true
         self.index += 1
     }
     func speechRecognitionTask(_ task: SFSpeechRecognitionTask, didFinishSuccessfully successfully: Bool) {
@@ -256,6 +257,15 @@ class VerbalSymptomViewController: UIViewController, AVSpeechSynthesizerDelegate
         eightButton.titleLabel?.font = numberFont
         nineButton.titleLabel?.font = numberFont
         tenButton.titleLabel?.font = numberFont
+    }
+
+    func alertUser(withMessage message: String){
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Ok", style: .cancel) { (_) in
+            self.dismiss(animated: true, completion: nil)
+            }
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true)
     }
 
 }
