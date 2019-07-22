@@ -23,6 +23,11 @@ class UserController{
         return name[0]
     }
     
+    func updateUser(user: User, ifYouKnow: Bool){
+        user.ifYouKnow = true
+        saveToPersistentStore()
+    }
+    
     //MARK: -Crud functions
     func createUser(name:String){
         User(name: name)

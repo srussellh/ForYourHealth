@@ -28,5 +28,6 @@ let lightAccent: UIColor = UIColor(hue: 0.5472, saturation: 0.45, brightness: 0.
 let mainBrandColor: UIColor = UIColor(hue: 0.5639, saturation: 0.61, brightness: 0.76, alpha: 1.0) /* #4b93c2 */
 let darkAccent: UIColor = UIColor(hue: 0.6722, saturation: 0.44, brightness: 0.7, alpha: 1.0) /* #6865b5 */
 let darkShade: UIColor = UIColor(hue: 0.6222, saturation: 0.69, brightness: 0.38, alpha: 1.0) /* #1e3062 */
+let lightGray: UIColor = UIColor(hue: 0.5417, saturation: 0.11, brightness: 0.52, alpha: 0.7) /* #768084 */
 
 

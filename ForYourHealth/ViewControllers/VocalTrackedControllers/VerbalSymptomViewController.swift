@@ -142,7 +142,7 @@ class VerbalSymptomViewController: UIViewController, AVSpeechSynthesizerDelegate
         response = transcription.formattedString
         print("Text \(transcription.formattedString)")
         self.timer?.invalidate()
-        self.timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { [weak self] timer in
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: { [weak self] timer in
             self?.response = transcription.formattedString
             self?.stopRecording()
         })

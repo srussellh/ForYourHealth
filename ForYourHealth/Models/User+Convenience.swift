@@ -10,8 +10,9 @@ import Foundation
 import CoreData
 
 extension User {
-    @discardableResult convenience init(name:String, context: NSManagedObjectContext = CoreDataStack.context){
+    @discardableResult convenience init(name:String, ifYouKnow:Bool = false, context: NSManagedObjectContext = CoreDataStack.context){
         self.init(context: context)
         self.name = name
+        self.ifYouKnow = ifYouKnow
     }
 }

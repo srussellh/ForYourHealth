@@ -14,9 +14,13 @@ class SelectionViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var VerbalButton: UIButton!
     @IBOutlet weak var manualButton: UIButton!
+    @IBOutlet weak var openingText: UILabel!
+    @IBOutlet weak var openingView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         view.backgroundColor = lightShade
         titleLabel.text = "How would you like to fill out your information?"
         titleLabel.textColor = darkShade
@@ -42,6 +46,17 @@ class SelectionViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        if UserController.shared.user.ifYouKnow == false {
+            openingView.isHidden = false
+            openingText.isHidden = false
+            openingText.textColor = .black
+            openingText.font = titleFont
+            openingView.backgroundColor = lightGray
+            self.view.bringSubviewToFront(openingText)
+        } else {
+            openingText.isHidden = true
+            openingView.isHidden = true
+        }
         symptomIndex = UserController.shared.user.symptoms?.count
     }
     @IBAction func verbalButtonPressed(_ sender: Any) {
