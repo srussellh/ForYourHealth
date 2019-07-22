@@ -10,14 +10,17 @@ import UIKit
 
 //MARK: Fonts
 let titleFont = UIFont(name: "Noteworthy", size: 20)
+let headerFont = UIFont(name: "Noteworthy", size: 24)
 let buttonFont = UIFont(name: "NoteWorthy", size: 20)
 let cancelFont = UIFont(name: "NoteWorthy", size: 16)
 let symptomFont = UIFont(name: "Noteworthy", size: 18)
 let numberFont = UIFont(name: "NoteWorthy", size: 16)
 let dayFont = UIFont(name: "NoteWorthy", size: 16)
+let dateFont = UIFont(name: "NoteWorthy", size: 16)
 //MARK: rounding
-let roundDivider:CGFloat = 5
+let roundDivider:CGFloat = 4
 let textFieldRounder: CGFloat = 20
+let buttonBorder: CGFloat = 1.0
 
 //MARK: Colors
 let lightShade: UIColor = UIColor(hue: 0.1194, saturation: 0.2, brightness: 0.97, alpha: 1.0) /* #f8eac4 */

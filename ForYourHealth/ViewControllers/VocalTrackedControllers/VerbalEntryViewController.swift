@@ -13,7 +13,8 @@ import AVKit
 class VerbalEntryViewController: UIViewController, AVSpeechSynthesizerDelegate, SFSpeechRecognitionTaskDelegate   {
 
     let user = UserController.shared.user
-    
+    var yes = true
+    var symptomIndex:Int?
     let speechRecognizer = SFSpeechRecognizer()
     var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     var recognitionTask: SFSpeechRecognitionTask?
@@ -43,6 +44,13 @@ class VerbalEntryViewController: UIViewController, AVSpeechSynthesizerDelegate, 
         cancelButton.titleLabel?.font = cancelFont
         cancelButton.setTitleColor(darkAccent, for: .normal)
         requestSpeechAuth()
+        cancelButton.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        symptomIndex = UserController.shared.user.symptoms?.count
+        yes = true
     }
     @IBAction func cancelButtonPressed(_ sender: Any) {
         self.recognitionRequest?.endAudio()
@@ -51,8 +59,12 @@ class VerbalEntryViewController: UIViewController, AVSpeechSynthesizerDelegate, 
         self.recognitionTask?.finish()
         self.recognitionTask = nil
         audioEngine.inputNode.removeTap(onBus: 0)
-        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-        //        performSegue(withIdentifier: "exitToTab", sender: nil)
+        if symptomIndex == 0 {
+            self.presentingViewController?.dismiss(animated: true, completion: nil)
+        } else {
+            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        }
+        yes = false
     }
     
     func requestSpeechAuth() {
@@ -63,7 +75,7 @@ class VerbalEntryViewController: UIViewController, AVSpeechSynthesizerDelegate, 
                     self.utterence.rate = 0.4
                     self.utterence.volume = 1.0
                     do {
-                        try AVAudioSession().setCategory(.playAndRecord, mode: .default, policy: .default, options: .defaultToSpeaker)
+                        try AVAudioSession().setCategory(.playAndRecord, mode: .default, policy: .default, options: [.allowBluetooth, .defaultToSpeaker])
                     }catch{
                         print(error)
                     }
@@ -77,6 +89,7 @@ class VerbalEntryViewController: UIViewController, AVSpeechSynthesizerDelegate, 
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         do {
             try startRecording()
+            cancelButton.isHidden = false
         } catch {
             print("Recording Not Available")
         }
@@ -112,7 +125,7 @@ class VerbalEntryViewController: UIViewController, AVSpeechSynthesizerDelegate, 
         print("Text \(transcription.formattedString)")
         self.entryTextField.text = transcription.formattedString
         self.timer?.invalidate()
-        self.timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: false, block: { [weak self] timer in
+        self.timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: { [weak self] timer in
             self?.response = transcription.formattedString
             self?.stopRecording()
         })
@@ -124,10 +137,13 @@ class VerbalEntryViewController: UIViewController, AVSpeechSynthesizerDelegate, 
         self.recognitionTask?.finish()
         self.recognitionTask = nil
         audioEngine.inputNode.removeTap(onBus: 0)
+        cancelButton.isHidden = true
     }
     func speechRecognitionTask(_ task: SFSpeechRecognitionTask, didFinishSuccessfully successfully: Bool) {
         guard let response = response else {return}
         EntryController.shared.createEntry(body: response, user: user)
+        if yes == true {
         performSegue(withIdentifier: "toFoodEntry", sender: nil)
+        }
     }
 }

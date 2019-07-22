@@ -43,6 +43,7 @@ class ManualEntryViewController: UIViewController {
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(resignAll))
         view.addGestureRecognizer(tapRecognizer)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)

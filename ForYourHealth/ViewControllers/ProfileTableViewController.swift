@@ -11,11 +11,35 @@ import UIKit
 class ProfileTableViewController: UITableViewController {
     
     let user = UserController.shared.user
+    @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var labelView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.nameLabel.text = user.name
-        self.tabBarController?.tabBar.barTintColor = lightAccent
+        nameLabel.textColor = darkShade
+        nameLabel.font = headerFont
+        addButton.tintColor = darkAccent
+        tableView.backgroundColor = lightShade
+        labelView.backgroundColor = lightShade
+        self.navigationController?.navigationBar.barTintColor = mainBrandColor
+        self.tabBarController?.tabBar.barTintColor = mainBrandColor
+        
+        var backButtonBackgroundImage = UIImage(named: "BackButton")
+        
+        backButtonBackgroundImage =
+            backButtonBackgroundImage!.resizableImage(withCapInsets:
+                UIEdgeInsets(top: 0, left: backButtonBackgroundImage!.size.width - 1, bottom: 0, right: 0))
+        
+        let barAppearance =
+            UINavigationBar.appearance(whenContainedInInstancesOf: [ProfileTableViewController.self])
+        barAppearance.backIndicatorImage = backButtonBackgroundImage
+        barAppearance.backIndicatorTransitionMaskImage = backButtonBackgroundImage
+        
+        // Provide an empty backBarButton to hide the 'Back' text present by default in the back button.
+        let backBarButtton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backBarButtton
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -38,23 +62,41 @@ class ProfileTableViewController: UITableViewController {
         }
         
     }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
-            return "Symptoms"
+            let header = UILabel()
+            header.font = titleFont
+            header.textColor = darkShade
+            header.text = "      Symptoms"
+            header.backgroundColor = lightAccent
+            
+            return header
         } else {
-            return "Alerts"
+            let header = UILabel()
+            header.font = titleFont
+            header.textColor = darkShade
+            header.text = "      Alert"
+            header.backgroundColor = lightAccent
+            
+            return header
         }
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
         if indexPath.section == 0{
             guard let symptom = user.symptoms?.object(at: indexPath.row) as? Symptom
                 else {return UITableViewCell()}
+            cell.backgroundColor = lightShade
+            cell.textLabel?.font = titleFont
+            cell.textLabel?.textColor = darkShade
             cell.textLabel?.text = symptom.detail
             return cell
         } else {
             guard let alarm = user.alarm?.object(at: indexPath.row) as? Alarm else {return UITableViewCell()}
+            cell.backgroundColor = lightShade
+            cell.textLabel?.font = titleFont
+            cell.textLabel?.textColor = darkShade
             cell.textLabel?.text = alarm.name
             return cell
         }

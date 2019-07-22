@@ -16,6 +16,11 @@ class DateDetailTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        backgroundColor = lightShade
+        titleLabel.font = titleFont
+        titleLabel.textColor = darkShade
+        ratingLabel.font = titleFont
+        ratingLabel.textColor = darkShade
         // Initialization code
     }
 

@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class CreateAlarmTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var alarm: Alarm?
@@ -19,6 +20,7 @@ class CreateAlarmTableViewController: UITableViewController, UIPickerViewDelegat
     var amOrPm = 0
     
     
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var alertTitle: UITextField!
     @IBOutlet weak var sundayButton: UIButton!
@@ -29,6 +31,7 @@ class CreateAlarmTableViewController: UITableViewController, UIPickerViewDelegat
     @IBOutlet weak var fridayButton: UIButton!
     @IBOutlet weak var saturdayButton: UIButton!
     @IBOutlet weak var disableAlertButton: UIButton!
+    @IBOutlet weak var buttonUIView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +39,13 @@ class CreateAlarmTableViewController: UITableViewController, UIPickerViewDelegat
         if alarm != nil {
             alertTitle.text = alarm?.name
             weekdays = (alarm?.weekdays.map{ Int($0) }) ?? []
-            if weekdays.contains(1){sundayButton.backgroundColor = .green}
-            if weekdays.contains(2){mondayButton.backgroundColor = .green}
-            if weekdays.contains(3){tuesdayButton.backgroundColor = .green}
-            if weekdays.contains(4){wednesdayButton.backgroundColor = .green}
-            if weekdays.contains(5){thursdayButton.backgroundColor = .green}
-            if weekdays.contains(6){fridayButton.backgroundColor = .green}
-            if weekdays.contains(7){saturdayButton.backgroundColor = .green}
+            if weekdays.contains(1){sundayButton.backgroundColor = mainBrandColor}
+            if weekdays.contains(2){mondayButton.backgroundColor = mainBrandColor}
+            if weekdays.contains(3){tuesdayButton.backgroundColor = mainBrandColor}
+            if weekdays.contains(4){wednesdayButton.backgroundColor = mainBrandColor}
+            if weekdays.contains(5){thursdayButton.backgroundColor = mainBrandColor}
+            if weekdays.contains(6){fridayButton.backgroundColor = mainBrandColor}
+            if weekdays.contains(7){saturdayButton.backgroundColor = mainBrandColor}
             hour = Int(alarm!.hour)
             minute = Int(alarm!.minute)
             amOrPm = Int(alarm!.amOrPm)
@@ -58,8 +61,77 @@ class CreateAlarmTableViewController: UITableViewController, UIPickerViewDelegat
             }
             self.picker.selectRow(minute, inComponent: 1, animated: true)
             self.picker.selectRow(amOrPm, inComponent: 2, animated: true)
-            
         }
+        alertTitle.font = titleFont
+        alertTitle.textColor = darkShade
+        alertTitle.backgroundColor = lightShade
+        tableView.backgroundColor = lightAccent
+        buttonUIView.backgroundColor = lightShade
+        buttonUIView.layer.cornerRadius = buttonUIView.frame.height/roundDivider
+        saveButton.tintColor = darkAccent
+        
+        
+        picker.backgroundColor = lightShade
+        picker.layer.cornerRadius = textFieldRounder
+        sundayButton.layer.cornerRadius = sundayButton.frame.height/roundDivider
+        mondayButton.layer.cornerRadius = mondayButton.frame.height/roundDivider
+        tuesdayButton.layer.cornerRadius = tuesdayButton.frame.height/roundDivider
+        wednesdayButton.layer.cornerRadius = wednesdayButton.frame.height/roundDivider
+        thursdayButton.layer.cornerRadius = thursdayButton.frame.height/roundDivider
+        fridayButton.layer.cornerRadius = fridayButton.frame.height/roundDivider
+        saturdayButton.layer.cornerRadius = saturdayButton.frame.height/roundDivider
+        
+        sundayButton.titleLabel?.font = dayFont
+        mondayButton.titleLabel?.font = dayFont
+        tuesdayButton.titleLabel?.font = dayFont
+        wednesdayButton.titleLabel?.font = dayFont
+        thursdayButton.titleLabel?.font = dayFont
+        fridayButton.titleLabel?.font = dayFont
+        saturdayButton.titleLabel?.font = dayFont
+        
+        sundayButton.setTitleColor(darkAccent, for: .normal)
+        mondayButton.setTitleColor(darkAccent, for: .normal)
+        tuesdayButton.setTitleColor(darkAccent, for: .normal)
+        wednesdayButton.setTitleColor(darkAccent, for: .normal)
+        thursdayButton.setTitleColor(darkAccent, for: .normal)
+        fridayButton.setTitleColor(darkAccent, for: .normal)
+        saturdayButton.setTitleColor(darkAccent, for: .normal)
+        
+        tableView.separatorStyle = .none
+        
+        saveButton.setTitleTextAttributes([NSAttributedString.Key.font: titleFont!], for: .normal)
+        
+        let titleLabel = UILabel()
+        titleLabel.text = "Alert"
+        titleLabel.font = headerFont
+        titleLabel.textColor = darkShade
+        titleLabel.sizeToFit()
+        navigationItem.titleView = titleLabel
+        
+//       var backButton = self.navigationController?.navigationItem.leftBarButtonItem
+       
+//        let leftButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+//        leftButton.tintColor = darkAccent
+//        navigationItem.backBarButtonItem = leftButton
+//        navigationController?.navigationBar.backIndicatorImage = UIImage(named: "BackButton")
+        
+//
+//        self.navigationController?.navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Noteworthy", size: 26)!], for: .normal)
+        
+//        var backButtonBackgroundImage = UIImage(named: "BackButton")
+//        
+//        backButtonBackgroundImage =
+//            backButtonBackgroundImage!.resizableImage(withCapInsets:
+//                UIEdgeInsets(top: 0, left: backButtonBackgroundImage!.size.width - 1, bottom: 0, right: 0))
+//        
+//        let barAppearance =
+//            UINavigationBar.appearance(whenContainedInInstancesOf: [CreateAlarmTableViewController.self])
+//        barAppearance.backIndicatorImage = backButtonBackgroundImage
+//        barAppearance.backIndicatorTransitionMaskImage = backButtonBackgroundImage
+//        
+//        // Provide an empty backBarButton to hide the 'Back' text present by default in the back button.
+//        let backBarButtton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+//        navigationItem.backBarButtonItem = backBarButtton
         
     }
 
@@ -67,70 +139,69 @@ class CreateAlarmTableViewController: UITableViewController, UIPickerViewDelegat
         if weekdays.contains(1) {
             let index = weekdays.firstIndex(of: 1)
             weekdays.remove(at: index!)
-            sundayButton.backgroundColor = .white
+            sundayButton.backgroundColor = lightShade
         } else {
             weekdays.append(1)
-            sundayButton.backgroundColor = .green
         }
     }
     @IBAction func mondayButtonTapped(_ sender: Any) {
         if weekdays.contains(2) {
             let index = weekdays.firstIndex(of: 2)
             weekdays.remove(at: index!)
-            mondayButton.backgroundColor = .white
+            mondayButton.backgroundColor = lightShade
         } else {
             weekdays.append(2)
-            mondayButton.backgroundColor = .green
+            mondayButton.backgroundColor = mainBrandColor
         }
     }
     @IBAction func tuesdayButtonTapped(_ sender: Any) {
         if weekdays.contains(3) {
             let index = weekdays.firstIndex(of: 3)
             weekdays.remove(at: index!)
-            tuesdayButton.backgroundColor = .white
+            tuesdayButton.backgroundColor = lightShade
         } else {
             weekdays.append(3)
-            tuesdayButton.backgroundColor = .green
+            tuesdayButton.backgroundColor = mainBrandColor
         }
     }
     @IBAction func wednesdayButtonTapped(_ sender: Any) {
         if weekdays.contains(4) {
             let index = weekdays.firstIndex(of: 4)
             weekdays.remove(at: index!)
-            wednesdayButton.backgroundColor = .white
+            wednesdayButton.backgroundColor = lightShade
         } else {
             weekdays.append(4)
-            wednesdayButton.backgroundColor = .green
+            wednesdayButton.backgroundColor = mainBrandColor
         }
     }
     @IBAction func thursdayButtonTapped(_ sender: Any) {
         if weekdays.contains(5) {
             let index = weekdays.firstIndex(of: 5)
             weekdays.remove(at: index!)
-            thursdayButton.backgroundColor = .white
+            thursdayButton.backgroundColor = lightShade
         } else {
             weekdays.append(5)
-            thursdayButton.backgroundColor = .green
+            thursdayButton.backgroundColor = mainBrandColor
         }
     }
     @IBAction func fridayButtonTapped(_ sender: Any) {
         if weekdays.contains(6) {
             let index = weekdays.firstIndex(of: 6)
             weekdays.remove(at: index!)
-            fridayButton.backgroundColor = .white
+            fridayButton.backgroundColor = lightShade
         } else {
             weekdays.append(6)
-            fridayButton.backgroundColor = .green
+            fridayButton.backgroundColor = mainBrandColor
         }
     }
     @IBAction func saturdayButtonTapped(_ sender: Any) {
         if weekdays.contains(7) {
             let index = weekdays.firstIndex(of: 7)
             weekdays.remove(at: index!)
-            saturdayButton.backgroundColor = .white
+            saturdayButton.backgroundColor = lightShade
         } else {
             weekdays.append(7)
-            saturdayButton.backgroundColor = .green
+            saturdayButton.backgroundColor = mainBrandColor
         }
     }
     
@@ -175,6 +246,7 @@ class CreateAlarmTableViewController: UITableViewController, UIPickerViewDelegat
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
         return pickerData[component][row]
 
     }

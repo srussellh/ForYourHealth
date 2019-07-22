@@ -11,7 +11,8 @@ import UIKit
 class DateCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
-//        dateLabel.textColor = .green
+        dateLabel.textColor = darkShade
+        dateLabel.font = dateFont
         
     }
     
