@@ -10,12 +10,32 @@ import UIKit
 
 class ProfileTableViewController: UITableViewController {
     
+    var initialSession = UIView()
+    var initialLabel = UILabel()
+    
     let user = UserController.shared.user
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var labelView: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let viewHeight = (navigationController?.navigationBar.frame.height)!
+        initialSession = UIView(frame: CGRect(x: 0, y: viewHeight + 30, width: self.view.frame.width, height: self.view.frame.height))
+        initialSession.addSubview(initialLabel)
+        initialLabel = UILabel(frame: CGRect(x: view.frame.width/2, y: 20, width: view.frame.width/2, height: view.frame.height))
+        initialSession.backgroundColor = lightGray
+        initialSession.addSubview(initialLabel)
+        self.navigationController?.view.addSubview(initialSession)
+        initialSession.bringSubviewToFront(initialLabel)
+        initialLabel.text = "Click on the '+' to add a symptom or a reminder to enter an alert to fill out your entries."
+        initialLabel.font = titleFont
+        initialLabel.textColor = .black
+        initialLabel.numberOfLines = 4
+        initialLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        
         self.nameLabel.text = user.name
         nameLabel.textColor = darkShade
         nameLabel.font = headerFont
@@ -43,11 +63,19 @@ class ProfileTableViewController: UITableViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        if user.ifYouKnow == false {
+            initialSession.isHidden = false
+        } else {
+            initialSession.isHidden = true
+        }
         tableView.reloadData()
     }
     @IBAction func addButtonPressed(_ sender: Any) {
         alertUser(withMessage: "What would you like to add?")
+        UserController.shared.updateUser(user: user, ifYouKnow: true)
+        initialSession.isHidden = true
     }
+    
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2

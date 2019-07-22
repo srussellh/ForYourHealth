@@ -643,15 +643,32 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To get started, let's add some information. Please select 'Profile' below." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LOc-qC-mrS">
+                                <rect key="frame" x="60" y="742" width="324" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ICp-z1-slI">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <color key="backgroundColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="T2R-Wr-Os9" firstAttribute="bottom" secondItem="ICp-z1-slI" secondAttribute="bottom" id="58g-J6-xyn"/>
+                            <constraint firstItem="LOc-qC-mrS" firstAttribute="leading" secondItem="ooX-iw-KNG" secondAttribute="leading" constant="60" id="8mt-bA-1E7"/>
+                            <constraint firstItem="ICp-z1-slI" firstAttribute="top" secondItem="ooX-iw-KNG" secondAttribute="top" id="BGI-5g-hGq"/>
                             <constraint firstItem="CwB-56-SDH" firstAttribute="centerX" secondItem="T2R-Wr-Os9" secondAttribute="centerX" id="FRl-S4-2uM"/>
                             <constraint firstItem="bqb-N5-MiE" firstAttribute="centerX" secondItem="ooX-iw-KNG" secondAttribute="centerX" id="Jxc-2z-tMc"/>
+                            <constraint firstItem="ICp-z1-slI" firstAttribute="leading" secondItem="T2R-Wr-Os9" secondAttribute="leading" id="KQ4-md-vhr"/>
+                            <constraint firstItem="T2R-Wr-Os9" firstAttribute="bottom" secondItem="LOc-qC-mrS" secondAttribute="bottom" constant="30" id="MGT-8P-xVd"/>
                             <constraint firstItem="CwB-56-SDH" firstAttribute="width" secondItem="ooX-iw-KNG" secondAttribute="width" multiplier="0.75" id="QJY-kK-I1y"/>
+                            <constraint firstItem="T2R-Wr-Os9" firstAttribute="trailing" secondItem="LOc-qC-mrS" secondAttribute="trailing" constant="30" id="VZY-8G-sOb"/>
                             <constraint firstItem="bqb-N5-MiE" firstAttribute="width" secondItem="ooX-iw-KNG" secondAttribute="width" multiplier="0.5" id="brK-SP-eeK"/>
                             <constraint firstItem="bqb-N5-MiE" firstAttribute="top" secondItem="CwB-56-SDH" secondAttribute="bottom" constant="200" id="eNB-i5-zSJ"/>
                             <constraint firstItem="CwB-56-SDH" firstAttribute="top" secondItem="T2R-Wr-Os9" secondAttribute="top" constant="80" id="iNN-bB-4yX"/>
+                            <constraint firstItem="T2R-Wr-Os9" firstAttribute="trailing" secondItem="ICp-z1-slI" secondAttribute="trailing" id="ygK-J2-m6i"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="T2R-Wr-Os9"/>
                     </view>
@@ -659,6 +676,8 @@
                     <connections>
                         <outlet property="VerbalButton" destination="JqP-zC-nWy" id="Y39-Zb-kXQ"/>
                         <outlet property="manualButton" destination="JBF-CB-P6x" id="xQP-h5-4nC"/>
+                        <outlet property="openingText" destination="LOc-qC-mrS" id="xav-YW-XgZ"/>
+                        <outlet property="openingView" destination="ICp-z1-slI" id="Cgd-FR-slG"/>
                         <outlet property="titleLabel" destination="CwB-56-SDH" id="Lv1-he-daT"/>
                         <segue destination="xs7-pE-Hb5" kind="show" identifier="toSymptom" id="X5c-Pi-bId"/>
                         <segue destination="VuE-E4-Ueg" kind="show" identifier="skipToEntry" id="Ng1-s7-4JR"/>
@@ -668,7 +687,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNr-js-xh8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3441" y="1691"/>
+            <point key="canvasLocation" x="-3442.0289855072465" y="1690.8482142857142"/>
         </scene>
         <!--Verbal Symptom View Controller-->
         <scene sceneID="73Y-Gs-H47">
