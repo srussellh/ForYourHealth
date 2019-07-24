@@ -52,7 +52,7 @@ class VerbalSymptomViewController: UIViewController, AVSpeechSynthesizerDelegate
             performSegue(withIdentifier: "toJournalEntry", sender: nil)
         } else {
         titleLabel.font = titleFont
-        titleLabel.text = "On a scale from 1 to 10..."
+        titleLabel.text = "On a scale from 0 to 10..."
         titleLabel.textColor = darkShade
         symptomLabel.textColor = mainBrandColor
         symptomLabel.font = symptomFont
@@ -64,7 +64,6 @@ class VerbalSymptomViewController: UIViewController, AVSpeechSynthesizerDelegate
         updateView()
         cancelButton.isHidden = true
         }
-        
     }
     
     deinit {
@@ -105,26 +104,36 @@ class VerbalSymptomViewController: UIViewController, AVSpeechSynthesizerDelegate
     }
     
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
-        do {
-            try startRecording()
-        } catch {
-            print("Recording Not Available")
-        }
+        
+        startRecording()
         cancelButton.isHidden = false
     }
     
-    func startRecording() throws {
+    func startRecording() {
         
         recognitionTask?.cancel()
         self.recognitionTask = nil
         
         let audioSession = AVAudioSession.sharedInstance()
-        
-        try audioSession.setCategory(.record, mode: .measurement, options: .interruptSpokenAudioAndMixWithOthers)
+//        print(audioSession.availableInputs)
+        do {
+        try audioSession.setCategory(.playAndRecord, mode: .measurement, options: .interruptSpokenAudioAndMixWithOthers)
+        }catch{
+            print("♕♕♕♕♕♕♕♕♕♕♕")
+        }
+        do {
         try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+        } catch {
+            print("🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧")
+        }
         let inputNode = audioEngine.inputNode
         
+//        print(inputNode)
+        
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
+        
+//        print(recognitionRequest)
+        
         guard let recognitionRequest = recognitionRequest else { fatalError("Unable to create a SFSpeechAudioBufferRecognitionRequest object") }
         recognitionRequest.shouldReportPartialResults = true
         recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest, delegate: self)
@@ -135,7 +144,11 @@ class VerbalSymptomViewController: UIViewController, AVSpeechSynthesizerDelegate
             self.recognitionRequest?.append(buffer)
         }
         audioEngine.prepare()
+        do {
         try audioEngine.start()
+        } catch {
+            print("🧲🧲🧲🧲🧲🧲🧲🧲🧲🧲🧲🧲🧲🧲🧲🧲")
+        }
     }
     
     func speechRecognitionTask(_ task: SFSpeechRecognitionTask, didHypothesizeTranscription transcription: SFTranscription) {

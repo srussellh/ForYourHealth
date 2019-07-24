@@ -22,6 +22,7 @@ class CreateSymptomViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = lightAccent
         
+        
         symptomTextField.backgroundColor = lightShade
         symptomTextField.font = titleFont
         symptomTextField.textColor = darkShade

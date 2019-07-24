@@ -49,6 +49,7 @@ class UserAlarmController {
     func deleteAlarm(alarm: Alarm){
         let moc = CoreDataStack.context
         moc.delete(alarm)
+        cancelUserNotifications(for: alarm)
         UserController.shared.saveToPersistentStore()
     }
 }

@@ -15,7 +15,7 @@ class CreateAlarmTableViewController: UITableViewController, UIPickerViewDelegat
     let user = UserController.shared.user
     var weekdays: [Int] = []
     var pickerData: [[String]] = [[String]]()
-    var hour = 1
+    var hour = 0
     var minute = 0
     var amOrPm = 0
     
@@ -106,33 +106,7 @@ class CreateAlarmTableViewController: UITableViewController, UIPickerViewDelegat
         titleLabel.font = headerFont
         titleLabel.textColor = darkShade
         titleLabel.sizeToFit()
-        navigationItem.titleView = titleLabel
-        
-//       var backButton = self.navigationController?.navigationItem.leftBarButtonItem
-       
-//        let leftButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-//        leftButton.tintColor = darkAccent
-//        navigationItem.backBarButtonItem = leftButton
-//        navigationController?.navigationBar.backIndicatorImage = UIImage(named: "BackButton")
-        
-//
-//        self.navigationController?.navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Noteworthy", size: 26)!], for: .normal)
-        
-//        var backButtonBackgroundImage = UIImage(named: "BackButton")
-//        
-//        backButtonBackgroundImage =
-//            backButtonBackgroundImage!.resizableImage(withCapInsets:
-//                UIEdgeInsets(top: 0, left: backButtonBackgroundImage!.size.width - 1, bottom: 0, right: 0))
-//        
-//        let barAppearance =
-//            UINavigationBar.appearance(whenContainedInInstancesOf: [CreateAlarmTableViewController.self])
-//        barAppearance.backIndicatorImage = backButtonBackgroundImage
-//        barAppearance.backIndicatorTransitionMaskImage = backButtonBackgroundImage
-//        
-//        // Provide an empty backBarButton to hide the 'Back' text present by default in the back button.
-//        let backBarButtton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-//        navigationItem.backBarButtonItem = backBarButtton
-        
+        navigationItem.titleView = titleLabel        
     }
 
     @IBAction func sundayButtonTapped(_ sender: Any) {
@@ -207,8 +181,10 @@ class CreateAlarmTableViewController: UITableViewController, UIPickerViewDelegat
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let name = alertTitle.text else {return}
-        if amOrPm == 0 && hour == 12 {
+        if amOrPm == 0 && hour == 11 {
             hour = 0
+        }else if amOrPm == 1 && hour == 11{
+            hour = 12
         }else if amOrPm == 1 {
             hour = hour + 13
         } else {

@@ -59,7 +59,11 @@ class ManualFoodEntryViewController: UIViewController {
     @IBAction func doneButtonPressed(_ sender: Any) {
         guard let detail = foodEntryTextField.text else {return}
         FoodEntryController.shared.createFoodEntry(detail: detail, user: user)
-        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        if symptomIndex == 0 {
+            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        } else {
+            self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        }
     }
     @objc func resignAll(){
         foodEntryTextField.resignFirstResponder()

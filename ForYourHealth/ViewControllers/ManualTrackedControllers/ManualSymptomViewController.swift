@@ -42,7 +42,7 @@ class ManualSymptomViewController: UIViewController {
             skipButton.setTitleColor(darkAccent, for: .normal)
             skipButton.setTitle("Skip", for: .normal)
             skipButton.titleLabel?.font = buttonFont
-            titleLabel.text = "On a scale from 1 to 10..."
+            titleLabel.text = "On a scale from 0 to 10..."
             titleLabel.font = titleFont
             titleLabel.textColor = darkShade
         
