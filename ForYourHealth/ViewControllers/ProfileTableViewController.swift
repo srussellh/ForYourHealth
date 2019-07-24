@@ -30,7 +30,7 @@ class ProfileTableViewController: UITableViewController {
         initialSession.addSubview(initialLabel)
         self.navigationController?.view.addSubview(initialSession)
         initialSession.bringSubviewToFront(initialLabel)
-        initialLabel.text = "Click on the '+' to add a symptom or a reminder to enter an alert to fill out your entries."
+        initialLabel.text = "Lets get started by adding a symptom or an alert. Please press the '+' to get started."
         initialLabel.font = titleFont
         initialLabel.textColor = .black
         initialLabel.numberOfLines = 4

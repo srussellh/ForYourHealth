@@ -935,11 +935,11 @@
             </objects>
             <point key="canvasLocation" x="-493" y="1691"/>
         </scene>
-        <!--Calender-->
+        <!--Calendar-->
         <scene sceneID="HNt-gf-uf2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5rX-EW-dqx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Calender" id="mLP-Gz-Mnn"/>
+                    <tabBarItem key="tabBarItem" title="Calendar" id="mLP-Gz-Mnn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tLm-rA-fFE">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1222,9 +1222,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Please Discribe your symptom here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="O3N-It-Xeb">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Symptom..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="O3N-It-Xeb">
                                 <rect key="frame" x="41.5" y="108" width="331" height="224"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
